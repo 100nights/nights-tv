@@ -14,6 +14,7 @@ class VotePostController extends Controller
    */
   public function index(Request $request)
   {
+    $uid = md5($_SERVER['HTTP_USER_AGENT'] .  $_SERVER['REMOTE_ADDR']);
     $vote_post = VotePost::first();
     $total_votes = 0;
 
@@ -27,7 +28,7 @@ class VotePostController extends Controller
       $total_votes = $vote_post->votes()->count();
       $user_vote = $vote_post
         ->votes()
-        ->where('address', $request->ip(), 'and')
+        ->where('address', $uid, 'and')
         ->where('vote_post_id', $vote_post->id)
         ->first();
 
@@ -108,6 +109,8 @@ class VotePostController extends Controller
    */
   public function show(Request $request)
   {
+    $uid = md5($_SERVER['HTTP_USER_AGENT'] .  $_SERVER['REMOTE_ADDR']);
+
     $vote_post = VotePost::first();
     $total_votes = 0;
 
@@ -121,7 +124,7 @@ class VotePostController extends Controller
       $total_votes = $vote_post->votes()->count();
       $user_vote = $vote_post
         ->votes()
-        ->where('address', $request->ip(), 'and')
+        ->where('address', $uid, 'and')
         ->where('vote_post_id', $vote_post->id)
         ->first();
 

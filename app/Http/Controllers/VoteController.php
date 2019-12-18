@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Vote;
 use App\VotePost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class VoteController extends Controller
 {
@@ -29,9 +30,18 @@ class VoteController extends Controller
    */
   public function store(Request $request)
   {
+
+//    $session_id = $request->session()->getId();
+//    if (!$session_id) {
+//      $request->session()->setId(Str::uuid());
+//    }
+
+
+
+    $uid = md5($_SERVER['HTTP_USER_AGENT'] .  $_SERVER['REMOTE_ADDR']);
     $vote_post = VotePost::first();
 
-    $votes = Vote::where('address', $request->ip(), 'and')->where('vote_post_id', $vote_post->id)->first();
+    $votes = Vote::where('address', $uid, 'and')->where('vote_post_id', $vote_post->id)->first();
 
     if (!$votes) {
 
@@ -39,7 +49,7 @@ class VoteController extends Controller
 
 
       $vote->name = $request->name;
-      $vote->address = $request->ip();
+      $vote->address = $uid;
       $vote->vote_post_id = $vote_post->id;
       $vote->vote = $request->vote;
 
