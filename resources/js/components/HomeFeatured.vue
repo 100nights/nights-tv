@@ -18,6 +18,7 @@
 <script>
   import {getHomePromo} from "../api/home_promo"
   import store from "../stores/store"
+  import {getGameDate} from "../api/game_date"
 
   export default {
     name: "home-featured",
@@ -46,42 +47,52 @@
         const {home_promo} = homePromo
         this.homePromo = home_promo
       },
-      startCountDown() {
-        const countDownDate = new Date("Dec 18, 2019 22:00:00").getTime()
-        // Update the count down every 1 second
-        const x = setInterval(() => {
+      async startCountDown() {
+        let countDownDateString;
+        try {
+          const data = await getGameDate()
+          console.log(data)
+          countDownDateString = data.game_date.date
+        } catch (e) {
+          countDownDateString = null
+        }
+        if (countDownDateString) {
+          const countDownDate = new Date(countDownDateString).getTime()
+          // Update the count down every 1 second
+          const x = setInterval(() => {
 
-          // Get today's date and time
-          const now = new Date().getTime()
+            // Get today's date and time
+            const now = new Date().getTime()
 
-          // Find the distance between now and the count down date
-          const distance = countDownDate - now
+            // Find the distance between now and the count down date
+            const distance = countDownDate - now
 
-          // Time calculations for days, hours, minutes and seconds
-          let hours = Math.floor(distance / (1000 * 60 * 60))
-          // if (hours < 10) {
-          //   hours = `0${hours}`
-          // }
-          // const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-          let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-          // if (minutes < 10) {
-          //   minutes = `0${hours}`
-          // }
-          let seconds = Math.floor((distance % (1000 * 60)) / 1000)
-          // if (seconds < 10) {
-          //   seconds = `0${hours}`
-          // }
-          // Display the result in the element with id="demo"
-          this.countDown = hours + " : "
-            + minutes + " : " + seconds
-          console.log(this.countDown)
+            // Time calculations for days, hours, minutes and seconds
+            let hours = Math.floor(distance / (1000 * 60 * 60))
+            // if (hours < 10) {
+            //   hours = `0${hours}`
+            // }
+            // const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+            // if (minutes < 10) {
+            //   minutes = `0${hours}`
+            // }
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000)
+            // if (seconds < 10) {
+            //   seconds = `0${hours}`
+            // }
+            // Display the result in the element with id="demo"
+            this.countDown = hours + " : "
+              + minutes + " : " + seconds
+            console.log(this.countDown)
 
-          // If the count down is finished, write some text
-          if (distance < 0) {
-            clearInterval(x)
-            this.countDown = null
-          }
-        }, 1000)
+            // If the count down is finished, write some text
+            if (distance < 0) {
+              clearInterval(x)
+              this.countDown = null
+            }
+          }, 1000)
+        }
       }
     },
     computed: {

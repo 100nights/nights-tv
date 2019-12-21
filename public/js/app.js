@@ -3735,6 +3735,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _api_home_promo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/home_promo */ "./resources/js/api/home_promo.js");
 /* harmony import */ var _stores_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../stores/store */ "./resources/js/stores/store.js");
+/* harmony import */ var _api_game_date__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../api/game_date */ "./resources/js/api/game_date.js");
 
 //
 //
@@ -3753,6 +3754,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3813,36 +3815,67 @@ __webpack_require__.r(__webpack_exports__);
     startCountDown: function startCountDown() {
       var _this = this;
 
-      var countDownDate = new Date("Dec 18, 2019 22:00:00").getTime(); // Update the count down every 1 second
+      var countDownDateString, data, countDownDate, x;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function startCountDown$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_api_game_date__WEBPACK_IMPORTED_MODULE_3__["getGameDate"])());
 
-      var x = setInterval(function () {
-        // Get today's date and time
-        var now = new Date().getTime(); // Find the distance between now and the count down date
+            case 3:
+              data = _context3.sent;
+              console.log(data);
+              countDownDateString = data.game_date.date;
+              _context3.next = 11;
+              break;
 
-        var distance = countDownDate - now; // Time calculations for days, hours, minutes and seconds
+            case 8:
+              _context3.prev = 8;
+              _context3.t0 = _context3["catch"](0);
+              countDownDateString = null;
 
-        var hours = Math.floor(distance / (1000 * 60 * 60)); // if (hours < 10) {
-        //   hours = `0${hours}`
-        // }
-        // const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+            case 11:
+              if (countDownDateString) {
+                countDownDate = new Date(countDownDateString).getTime(); // Update the count down every 1 second
 
-        var minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60)); // if (minutes < 10) {
-        //   minutes = `0${hours}`
-        // }
+                x = setInterval(function () {
+                  // Get today's date and time
+                  var now = new Date().getTime(); // Find the distance between now and the count down date
 
-        var seconds = Math.floor(distance % (1000 * 60) / 1000); // if (seconds < 10) {
-        //   seconds = `0${hours}`
-        // }
-        // Display the result in the element with id="demo"
+                  var distance = countDownDate - now; // Time calculations for days, hours, minutes and seconds
 
-        _this.countDown = hours + " : " + minutes + " : " + seconds;
-        console.log(_this.countDown); // If the count down is finished, write some text
+                  var hours = Math.floor(distance / (1000 * 60 * 60)); // if (hours < 10) {
+                  //   hours = `0${hours}`
+                  // }
+                  // const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
 
-        if (distance < 0) {
-          clearInterval(x);
-          _this.countDown = null;
+                  var minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60)); // if (minutes < 10) {
+                  //   minutes = `0${hours}`
+                  // }
+
+                  var seconds = Math.floor(distance % (1000 * 60) / 1000); // if (seconds < 10) {
+                  //   seconds = `0${hours}`
+                  // }
+                  // Display the result in the element with id="demo"
+
+                  _this.countDown = hours + " : " + minutes + " : " + seconds;
+                  console.log(_this.countDown); // If the count down is finished, write some text
+
+                  if (distance < 0) {
+                    clearInterval(x);
+                    _this.countDown = null;
+                  }
+                }, 1000);
+              }
+
+            case 12:
+            case "end":
+              return _context3.stop();
+          }
         }
-      }, 1000);
+      }, null, null, [[0, 8]]);
     }
   },
   computed: {
@@ -120186,6 +120219,27 @@ function getChannel(id) {
 
 /***/ }),
 
+/***/ "./resources/js/api/game_date.js":
+/*!***************************************!*\
+  !*** ./resources/js/api/game_date.js ***!
+  \***************************************/
+/*! exports provided: getGameDate */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getGameDate", function() { return getGameDate; });
+/* harmony import */ var _js_utils_request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/js/utils/request */ "./resources/js/utils/request.js");
+
+function getGameDate() {
+  return Object(_js_utils_request__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    url: '/game_date',
+    method: 'get'
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/api/home_promo.js":
 /*!****************************************!*\
   !*** ./resources/js/api/home_promo.js ***!
@@ -120265,22 +120319,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
 
 
-var base = 'http://tv.sawadland.com:8999/https://webws.365scores.com/web';
+var base = "http://tv.sawadland.com:8999/https://webws.365scores.com/web";
 function getGames() {
   var langId = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-  var startDate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : moment__WEBPACK_IMPORTED_MODULE_1___default()().format('DD/MM/YYYY');
-  var endDate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : moment__WEBPACK_IMPORTED_MODULE_1___default()().format('DD/MM/YYYY');
+  var startDate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : moment__WEBPACK_IMPORTED_MODULE_1___default()().format("DD/MM/YYYY");
+  var endDate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : moment__WEBPACK_IMPORTED_MODULE_1___default()().format("DD/MM/YYYY");
   return Object(_js_utils_request__WEBPACK_IMPORTED_MODULE_0__["default"])({
     url: "".concat(base, "/games/?langId=").concat(langId, "&timezoneName=Asia/Baghdad&userCountryId=-1&appTypeId=5&sports=1&startDate=").concat(startDate, "&endDate=").concat(endDate),
-    method: 'get'
+    method: "get"
   });
 }
 function getGame() {
   var langId = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
   var gameId = arguments.length > 1 ? arguments[1] : undefined;
   return Object(_js_utils_request__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    url: "http://localhost:8080/".concat(base, "/game/?langId=").concat(langId, "&timezoneName=Asia/Baghdad&userCountryId=-1&appTypeId=5&gameId=").concat(gameId),
-    method: 'get'
+    url: "".concat(base, "/game/?langId=").concat(langId, "&timezoneName=Asia/Baghdad&userCountryId=-1&appTypeId=5&gameId=").concat(gameId),
+    method: "get"
   });
 }
 
