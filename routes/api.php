@@ -38,6 +38,34 @@ Route::get('/categories', 'CategoryController@index');
 Route::get('/categories/{category}', 'CategoryController@show');
 Route::get('/home_promo', 'HomePromoController@index');
 
+Route::get('/game_date', function () {
+  $gameDate = \App\GameDate::first();
+
+  return response()->json(['game_date' => $gameDate], 200);
+});
+
+Route::post(
+  '/game_date',
+  function (Request $request) {
+    $request->validate([
+      'date' => 'required|max:255',
+    ]);
+
+    try {
+      $date = \App\GameDate::first();
+      if (!$date) {
+        $date = new \App\GameDate();
+      }
+      $date->date = $request->date;
+      $date->save();
+
+      return response()->json(['date' => $date]);
+    } catch (\Exception $exception) {
+      return response()->json(['error' => 'Could not update date'], 500);
+    }
+  }
+);
+
 Route::middleware('auth:api')->group(function () {
   Route::post('/landing', 'LandingController@store');
 
