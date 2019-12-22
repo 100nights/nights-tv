@@ -11,7 +11,7 @@
 
     .watch-now
       img.channel-logo(:src="channelLogoPath" width="200px")
-      router-link.button.downloads(:to="channelPath") {{ countDown || homePromo['title' + locale] }}
+      router-link.button.channel-button(:to="channelPath") {{ countDown || homePromo['title' + locale] }}
 
 </template>
 
@@ -135,6 +135,12 @@
   .button:hover {
     background: rgba(201, 201, 201, 0.219);
     box-shadow: 0 0 0 3px #d60000;
+  }
+
+  .button.channel-button {
+    &:hover {
+      background: #d60000;
+    }
   }
 
 

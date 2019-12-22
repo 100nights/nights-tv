@@ -7,8 +7,8 @@
         @click="changeDay(day)"
         v-for="day in week.match_days"
       ) {{ day.name }}
-    div(v-if="schedule")
-      schedule-game(:key="league.id" v-for="league in schedule" :league="league")
+    div(v-if="locale === '_ar' ? schedule_ar : schedule")
+      schedule-game(:key="league.id" v-for="league in (locale === '_ar' ? schedule_ar : schedule)" :league="league")
     loading-indicator(v-else)
 </template>
 
@@ -24,6 +24,7 @@
     data() {
       return {
         schedule: null,
+        schedule_ar: null,
         week: {
           today: '',
           selected_day: {},
@@ -46,16 +47,27 @@
       }, 20000)
     },
     methods: {
-      async getSchedule(date, locale = this.locale) {
-        const langId = locale === '_ar' ? 27 : 1
+      async getSchedule(date) {
 
-        const result = await getGames(langId, date, date)
+        const result = await getGames(date)
 
-        this.schedule = result["competitions"].map(competition => {
-          const games = result.games.filter(
+        this.schedule = result.schedule["competitions"].map(competition => {
+          const schedule = result.schedule;
+          const games = schedule.games.filter(
             ({competitionId}) => competitionId === competition.id
           )
-          const country = result.countries.find(
+          const country = schedule.countries.find(
+            country => country.id === competition.countryId
+          )
+          return {competition, games, country}
+        })
+
+        this.schedule_ar = result.schedule_ar["competitions"].map(competition => {
+          const schedule = result.schedule_ar;
+          const games = schedule.games.filter(
+            ({competitionId}) => competitionId === competition.id
+          )
+          const country = schedule.countries.find(
             country => country.id === competition.countryId
           )
           return {competition, games, country}
@@ -93,15 +105,17 @@
       locale(newValue, oldValue) {
         if (newValue !== oldValue) {
           this.setupDays()
-
-          this.schedule = null
-          this.getSchedule(this.isHighlighted.date)
+          // this.schedule = null
+          // this.getSchedule(this.isHighlighted.date)
         }
       },
 
       isHighlighted(newValue, oldValue) {
-        this.schedule = null
-        this.getSchedule(newValue.date)
+        if (newValue.date !== oldValue.date) {
+          this.schedule = null
+          this.schedule_ar = null
+          this.getSchedule(newValue.date)
+        }
       }
     },
     computed: {

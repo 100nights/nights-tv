@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef5be36-05e2-4a74-a989-29201fd1596e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/1001nights_tv.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/1001nights_tv.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_22_101334_create_schedules_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_22_101334_create_schedules_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/HomeFeatured.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/HomeFeatured.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/pages/Schedule.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/Schedule.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,7 +209,7 @@
       <workItem from="1576665601118" duration="17121000" />
       <workItem from="1576914987958" duration="456000" />
       <workItem from="1576937124746" duration="1220000" />
-      <workItem from="1577005327626" duration="9461000" />
+      <workItem from="1577005327626" duration="15113000" />
     </task>
     <servers />
   </component>
@@ -242,11 +242,11 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="477" y="214" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/39.23.1401.877@39.23.1401.877" timestamp="1576493935473" />
-    <state x="476" y="222" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1576661881290">
-      <screen x="38" y="23" width="1402" height="877" />
+    <state x="477" y="222" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1577025375632">
+      <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="476" y="222" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/38.23.1402.877@38.23.1402.877" timestamp="1576661881290" />
-    <state x="477" y="222" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/39.23.1401.877@39.23.1401.877" timestamp="1576604941861" />
+    <state x="477" y="222" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/39.23.1401.877@39.23.1401.877" timestamp="1577025375632" />
     <state x="360" y="118" key="#phpunit.xml" timestamp="1576324813359">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
