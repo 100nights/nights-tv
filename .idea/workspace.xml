@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef5be36-05e2-4a74-a989-29201fd1596e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -209,6 +208,7 @@
       <workItem from="1577005327626" duration="15613000" />
       <workItem from="1577043759176" duration="703000" />
       <workItem from="1577044564315" duration="758000" />
+      <workItem from="1577090346888" duration="398000" />
     </task>
     <servers />
   </component>
@@ -302,9 +302,9 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="388" y="195" width="700" height="530" key="recent.locations.popup/39.23.1401.877@39.23.1401.877" timestamp="1577044442423" />
-    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1577090355956">
+    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1577091038064">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
-    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup/39.23.1401.877@39.23.1401.877" timestamp="1577090355956" />
+    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup/39.23.1401.877@39.23.1401.877" timestamp="1577091038064" />
   </component>
 </project>
