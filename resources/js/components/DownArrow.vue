@@ -15,7 +15,6 @@
                 return this.down ? 'transform: rotate(180deg)' : '';
             }
         }
-
     }
 </script>
 
@@ -26,6 +25,6 @@
   }
 
   .down-arrow img {
-    width: 10px;
+    width: 13px;
   }
 </style>

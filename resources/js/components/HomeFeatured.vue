@@ -10,7 +10,7 @@
         .tab.downloads(:class="{highlighted: isHighlighted === 'downloads'}") {{ locale === '_ar' ? 'التحميلات' : 'Downloads'}}
 
     .watch-now
-      img.channel-logo(:src="channelLogoPath" width="200px")
+      img.channel-logo(:src="channelLogoPath" width="200px" height="100px")
       router-link.button.channel-button(:to="channelPath") {{ countDown || homePromo['title' + locale] }}
 
 </template>

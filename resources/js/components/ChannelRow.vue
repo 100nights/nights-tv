@@ -4,7 +4,7 @@
     .channel-row(:class="collapsed ? 'collapse' : ''" v-if="channels")
       channel-card(v-for="channel in data" :channel="channel" :key="channel.id")
     .see-more(v-on:click="collapse")
-      span {{ collapsed ? 'See more' : 'See less' }}
+      span {{ collapsed ? 'SEE MORE' : 'SEE LESS' }}
       down-arrow(:down="!collapsed")
 
 </template>
@@ -58,7 +58,8 @@
     font-size: 1.1rem;
     cursor: pointer;
     margin-right: 8px;
-    color: #d60000;
+    font-weight: bold;
+    color: #fff;
     font-family: "Dubai-Regular", sans-serif;
 
     /*&:hover {*/

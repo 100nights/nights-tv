@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef5be36-05e2-4a74-a989-29201fd1596e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/favicon-32x32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ChannelRow.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ChannelRow.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/DownArrow.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/DownArrow.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/HomeFeatured.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/HomeFeatured.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/app.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,16 +150,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/js/api" />
-      <recent name="$PROJECT_DIR$/resources/js/components" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/icons" />
       <recent name="$PROJECT_DIR$/resources/js/pages" />
       <recent name="$PROJECT_DIR$/resources/js/utils" />
       <recent name="$PROJECT_DIR$/resources/js" />
       <recent name="$PROJECT_DIR$/public/images" />
-      <recent name="$PROJECT_DIR$/public/images/home" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/api" />
+      <recent name="$PROJECT_DIR$/resources/js/components" />
     </key>
   </component>
   <component name="RunManager">
@@ -208,7 +215,8 @@
       <workItem from="1577005327626" duration="15613000" />
       <workItem from="1577043759176" duration="703000" />
       <workItem from="1577044564315" duration="758000" />
-      <workItem from="1577090346888" duration="398000" />
+      <workItem from="1577090346888" duration="676000" />
+      <workItem from="1577093177573" duration="1281000" />
     </task>
     <servers />
   </component>
@@ -302,9 +310,9 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="388" y="195" width="700" height="530" key="recent.locations.popup/39.23.1401.877@39.23.1401.877" timestamp="1577044442423" />
-    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1577091038064">
+    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1577103159310">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
-    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup/39.23.1401.877@39.23.1401.877" timestamp="1577091038064" />
+    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup/39.23.1401.877@39.23.1401.877" timestamp="1577103159310" />
   </component>
 </project>

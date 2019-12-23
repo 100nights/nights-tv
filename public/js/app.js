@@ -6941,7 +6941,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".channel-row-wrapper[data-v-a4be29fc] {\n  margin-bottom: 10px;\n}\n.collapse[data-v-a4be29fc] {\n  overflow: hidden;\n  height: 12.5vw;\n}\n.see-more[data-v-a4be29fc] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.see-more span[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 1.1rem;\n  cursor: pointer;\n  margin-right: 8px;\n  color: #d60000;\n  font-family: \"Dubai-Regular\", sans-serif;\n  /*&:hover {*/\n  /*  color: red;*/\n  /*}*/\n}\n.title[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 2rem;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n.channel-row[data-v-a4be29fc] {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n}\n@media screen and (max-width: 700px) {\n.collapse[data-v-a4be29fc] {\n    overflow: hidden;\n    height: 28vw;\n}\n}", ""]);
+exports.push([module.i, ".channel-row-wrapper[data-v-a4be29fc] {\n  margin-bottom: 10px;\n}\n.collapse[data-v-a4be29fc] {\n  overflow: hidden;\n  height: 12.5vw;\n}\n.see-more[data-v-a4be29fc] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.see-more span[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 1.1rem;\n  cursor: pointer;\n  margin-right: 8px;\n  font-weight: bold;\n  color: #fff;\n  font-family: \"Dubai-Regular\", sans-serif;\n  /*&:hover {*/\n  /*  color: red;*/\n  /*}*/\n}\n.title[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 2rem;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n.channel-row[data-v-a4be29fc] {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n}\n@media screen and (max-width: 700px) {\n.collapse[data-v-a4be29fc] {\n    overflow: hidden;\n    height: 28vw;\n}\n}", ""]);
 
 // exports
 
@@ -7245,7 +7245,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.down-arrow[data-v-1719032c] {\n  fill: #d60000;\n  /*margin-top: 5px;*/\n}\n.down-arrow img[data-v-1719032c] {\n  width: 10px;\n}\n", ""]);
+exports.push([module.i, "\n.down-arrow[data-v-1719032c] {\n  fill: #d60000;\n  /*margin-top: 5px;*/\n}\n.down-arrow img[data-v-1719032c] {\n  width: 13px;\n}\n", ""]);
 
 // exports
 
@@ -102839,7 +102839,7 @@ var render = function() {
       "div",
       { staticClass: "see-more", on: { click: _vm.collapse } },
       [
-        _c("span", [_vm._v(_vm._s(_vm.collapsed ? "See more" : "See less"))]),
+        _c("span", [_vm._v(_vm._s(_vm.collapsed ? "SEE MORE" : "SEE LESS"))]),
         _c("down-arrow", { attrs: { down: !_vm.collapsed } })
       ],
       1
@@ -102995,7 +102995,11 @@ var render = function() {
           [
             _c("img", {
               staticClass: "channel-logo",
-              attrs: { src: _vm.channelLogoPath, width: "200px" }
+              attrs: {
+                src: _vm.channelLogoPath,
+                width: "200px",
+                height: "100px"
+              }
             }),
             _c(
               "router-link",
@@ -122456,8 +122460,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/mohammedsalman/code/laravel/1001nights_tv/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/mohammedsalman/code/laravel/1001nights_tv/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/mohammedsalman/code/laravel/nights_tv/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/mohammedsalman/code/laravel/nights_tv/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
