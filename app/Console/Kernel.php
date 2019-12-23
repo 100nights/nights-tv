@@ -5,8 +5,6 @@ use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Illuminate\Support\Facades\Date;
-use function foo\func;
 
 class Kernel extends ConsoleKernel
 {
@@ -19,34 +17,27 @@ class Kernel extends ConsoleKernel
         //
     ];
 
-    /**
-     * Define the application's command schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
-     * @return void
-     */
     protected function schedule(Schedule $schedule)
     {
 
-
-
-        $schedule->call(function() {
-          $tomorrow = Carbon::now()->addDay()->format('d/m/Y');
-          $afterTomorrow = Carbon::now()->addDays(2)->format('d/m/Y');
-
-
-          $this->makeSchedule($tomorrow);
-          $this->makeSchedule($afterTomorrow);
-
-        })->daily();
-
-        $schedule->call(function () {
-          $date = Carbon::now()->format('d/m/Y');
-
-         $this->makeSchedule($date);
-
-
-        })->everyMinute();
+      $schedule->command('echo hello')->everyMinute()->appendOutputTo('/var/www/cron.txt');
+//        $schedule->call(function() {
+//          $tomorrow = Carbon::now()->addDay()->format('d/m/Y');
+//          $afterTomorrow = Carbon::now()->addDays(2)->format('d/m/Y');
+//
+//
+//          $this->makeSchedule($tomorrow);
+//          $this->makeSchedule($afterTomorrow);
+//
+//        })->daily();
+//
+//        $schedule->call(function () {
+//          $date = Carbon::now()->format('d/m/Y');
+//
+//         $this->makeSchedule($date);
+//
+//
+//        })->everyMinute();
         // $schedule->command('inspire')
         //          ->hourly();
     }

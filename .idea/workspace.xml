@@ -4,10 +4,6 @@
     <list default="true" id="0ef5be36-05e2-4a74-a989-29201fd1596e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_22_101334_create_schedules_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_22_101334_create_schedules_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/HomeFeatured.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/HomeFeatured.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/Schedule.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/Schedule.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +131,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
@@ -142,9 +139,9 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -209,7 +206,9 @@
       <workItem from="1576665601118" duration="17121000" />
       <workItem from="1576914987958" duration="456000" />
       <workItem from="1576937124746" duration="1220000" />
-      <workItem from="1577005327626" duration="15113000" />
+      <workItem from="1577005327626" duration="15613000" />
+      <workItem from="1577043759176" duration="703000" />
+      <workItem from="1577044564315" duration="758000" />
     </task>
     <servers />
   </component>
@@ -234,6 +233,10 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="339" y="126" key="#Deployment/39.23.1401.877@39.23.1401.877" timestamp="1576508597277" />
+    <state x="339" y="126" key="#Plugins" timestamp="1577044383108">
+      <screen x="39" y="23" width="1401" height="877" />
+    </state>
+    <state x="339" y="126" key="#Plugins/39.23.1401.877@39.23.1401.877" timestamp="1577044383108" />
     <state x="454" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576428373794">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
@@ -275,5 +278,33 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state width="1359" height="211" key="GridCell.Tab.0.right/39.23.1401.877@39.23.1401.877" timestamp="1576491839319" />
+    <state x="409" y="268" key="NewPhpClassDialog" timestamp="1577045165570">
+      <screen x="39" y="23" width="1401" height="877" />
+    </state>
+    <state x="409" y="268" key="NewPhpClassDialog/39.23.1401.877@39.23.1401.877" timestamp="1577045165570" />
+    <state x="241" y="110" key="SettingsEditor" timestamp="1577044977956">
+      <screen x="39" y="23" width="1401" height="877" />
+    </state>
+    <state x="241" y="110" key="SettingsEditor/39.23.1401.877@39.23.1401.877" timestamp="1577044977956" />
+    <state x="469" y="211" width="540" height="540" key="StructurePopup" timestamp="1577044839039">
+      <screen x="39" y="23" width="1401" height="877" />
+    </state>
+    <state x="469" y="211" width="540" height="540" key="StructurePopup/39.23.1401.877@39.23.1401.877" timestamp="1577044839039" />
+    <state width="592" height="445" key="SwitcherDM" timestamp="1577044447495">
+      <screen x="39" y="23" width="1401" height="877" />
+    </state>
+    <state width="592" height="445" key="SwitcherDM/39.23.1401.877@39.23.1401.877" timestamp="1577044447495" />
+    <state x="521" y="379" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577044489469">
+      <screen x="39" y="23" width="1401" height="877" />
+    </state>
+    <state x="521" y="379" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/39.23.1401.877@39.23.1401.877" timestamp="1577044489469" />
+    <state x="388" y="195" width="700" height="530" key="recent.locations.popup" timestamp="1577044442423">
+      <screen x="39" y="23" width="1401" height="877" />
+    </state>
+    <state x="388" y="195" width="700" height="530" key="recent.locations.popup/39.23.1401.877@39.23.1401.877" timestamp="1577044442423" />
+    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1577090355956">
+      <screen x="39" y="23" width="1401" height="877" />
+    </state>
+    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup/39.23.1401.877@39.23.1401.877" timestamp="1577090355956" />
   </component>
 </project>
