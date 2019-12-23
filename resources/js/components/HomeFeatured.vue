@@ -192,6 +192,7 @@
   }
 
   img.channel-logo {
+    object-fit: contain;
     margin-bottom: 30px;
   }
 
