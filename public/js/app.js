@@ -3754,6 +3754,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -4468,16 +4469,27 @@ __webpack_require__.r(__webpack_exports__);
       away_ratio: 0,
       draw_votes: 0,
       draw_ratio: 0,
-      vote: null
+      vote: null,
+      timer: null
     };
   },
   created: function created() {
-    var _this = this;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function created$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(this.getVotePost());
 
-    this.getVotePost();
-    setInterval(function () {
-      _this.getVotePost();
-    }, 10000);
+          case 2:
+            this.timer = setInterval(this.getVotePost, 10000);
+
+          case 3:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, null, this);
   },
   components: {
     ChannelList: _ChannelList__WEBPACK_IMPORTED_MODULE_3__["default"],
@@ -4487,15 +4499,15 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     getVotePost: function getVotePost() {
       var res;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getVotePost$(_context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getVotePost$(_context2) {
         while (1) {
-          switch (_context.prev = _context.next) {
+          switch (_context2.prev = _context2.next) {
             case 0:
-              _context.next = 2;
+              _context2.next = 2;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_api_vote__WEBPACK_IMPORTED_MODULE_4__["getVotePost"])());
 
             case 2:
-              res = _context.sent;
+              res = _context2.sent;
               this.vote_post = res.vote_post;
               this.total_votes = res.total_votes;
               this.home_votes = res.home_votes;
@@ -4508,29 +4520,28 @@ __webpack_require__.r(__webpack_exports__);
 
             case 12:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
       }, null, this);
     },
     voteTo: function voteTo(vote) {
-      var res;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function voteTo$(_context2) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function voteTo$(_context3) {
         while (1) {
-          switch (_context2.prev = _context2.next) {
+          switch (_context3.prev = _context3.next) {
             case 0:
-              _context2.next = 2;
+              _context3.next = 2;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_api_vote__WEBPACK_IMPORTED_MODULE_4__["newVote"])({
                 vote: vote
               }));
 
             case 2:
-              res = _context2.sent;
-              this.getVotePost();
+              _context3.next = 4;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(this.getVotePost());
 
             case 4:
             case "end":
-              return _context2.stop();
+              return _context3.stop();
           }
         }
       }, null, this);
@@ -4540,6 +4551,9 @@ __webpack_require__.r(__webpack_exports__);
     locale: function locale() {
       return this.$store.state.locale;
     }
+  },
+  destroyed: function destroyed() {
+    clearInterval(this.timer);
   }
 });
 
@@ -4894,6 +4908,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       schedule: null,
       schedule_ar: null,
+      timer: null,
       week: {
         today: '',
         selected_day: {},
@@ -4920,9 +4935,9 @@ __webpack_require__.r(__webpack_exports__);
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(this.getSchedule(this.isHighlighted.date, localStorage.getItem('locale')));
 
           case 3:
-            setInterval(function () {
+            this.timer = setInterval(function () {
               _this.getSchedule(_this.isHighlighted.date);
-            }, 20000);
+            }, 10000);
 
           case 4:
           case "end":
@@ -5030,6 +5045,9 @@ __webpack_require__.r(__webpack_exports__);
     locale: function locale() {
       return _stores_store__WEBPACK_IMPORTED_MODULE_4__["default"].state.locale;
     }
+  },
+  destroyed: function destroyed() {
+    clearInterval(this.timer);
   }
 });
 
@@ -6922,7 +6940,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".channel-link[data-v-06039c18] {\n  scroll-snap-align: start;\n}\n.channel-img[data-v-06039c18] {\n  margin-right: 10px;\n  /*margin-bottom: 10px;*/\n  height: 12.5vw;\n  width: 12.5vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  /*border-radius: 10px;*/\n  /*box-shadow: 0 0 0 2px silver;*/\n  /*border: 1px solid silver;*/\n  -webkit-transition: 0.5s;\n  transition: 0.5s;\n}\n.channel-img[data-v-06039c18]:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n@media screen and (max-width: 700px) {\n.channel-img[data-v-06039c18] {\n    width: 28vw;\n    height: 28vw;\n}\n}", ""]);
+exports.push([module.i, ".channel-link[data-v-06039c18] {\n  scroll-snap-align: start;\n}\n.channel-img[data-v-06039c18] {\n  margin-right: 10px;\n  /*margin-bottom: 10px;*/\n  height: 12.3vw;\n  width: 12.3vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  /*border-radius: 10px;*/\n  /*border: 1px solid silver;*/\n  -webkit-transition: 0.3s;\n  transition: 0.3s;\n}\n.channel-img[data-v-06039c18]:hover {\n  /*transform: scale(1.1);*/\n  box-shadow: 0 0 0 3px silver;\n}\n@media screen and (max-width: 700px) {\n.channel-img[data-v-06039c18] {\n    width: 28vw;\n    height: 28vw;\n}\n}", ""]);
 
 // exports
 
@@ -6941,7 +6959,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".channel-row-wrapper[data-v-a4be29fc] {\n  margin-bottom: 10px;\n}\n.collapse[data-v-a4be29fc] {\n  overflow: hidden;\n  height: 12.5vw;\n}\n.see-more[data-v-a4be29fc] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.see-more span[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 1.1rem;\n  cursor: pointer;\n  margin-right: 8px;\n  font-weight: bold;\n  color: #fff;\n  font-family: \"Dubai-Regular\", sans-serif;\n  /*&:hover {*/\n  /*  color: red;*/\n  /*}*/\n}\n.title[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 2rem;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n.channel-row[data-v-a4be29fc] {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n}\n@media screen and (max-width: 700px) {\n.collapse[data-v-a4be29fc] {\n    overflow: hidden;\n    height: 28vw;\n}\n}", ""]);
+exports.push([module.i, ".channel-row-wrapper[data-v-a4be29fc] {\n  margin-bottom: 10px;\n}\n.collapse[data-v-a4be29fc] {\n  padding: 3px 0;\n  overflow: hidden;\n  height: 12.7vw;\n}\n.see-more[data-v-a4be29fc] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.see-more span[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 1.1rem;\n  cursor: pointer;\n  margin-right: 8px;\n  font-weight: bold;\n  color: #fff;\n  font-family: \"Dubai-Regular\", sans-serif;\n  /*&:hover {*/\n  /*  color: red;*/\n  /*}*/\n}\n.title[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 2rem;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n.channel-row[data-v-a4be29fc] {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n}\n@media screen and (max-width: 700px) {\n.collapse[data-v-a4be29fc] {\n    overflow: hidden;\n    height: 28vw;\n}\n}", ""]);
 
 // exports
 
@@ -6998,7 +7016,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".button[data-v-c930f8d0] {\n  text-decoration: none;\n  color: white;\n  padding: 10px 35px;\n  box-shadow: 0 0 0 2px #d60000;\n  border-radius: 40px;\n  -webkit-transition: 0.2s;\n  transition: 0.2s;\n  text-align: center;\n  font-size: 1.3rem;\n}\n.button[data-v-c930f8d0]:hover {\n  background: rgba(201, 201, 201, 0.219);\n  box-shadow: 0 0 0 3px #d60000;\n}\n.button.channel-button[data-v-c930f8d0]:hover {\n  background: #d60000;\n}\n.featured .bottom-gradient[data-v-c930f8d0] {\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  height: 150px;\n  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#03090f));\n  background: linear-gradient(transparent, #03090f);\n}\nimg.logo[data-v-c930f8d0] {\n  padding: 50px;\n  width: 15vw;\n}\n.tabs[data-v-c930f8d0] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  position: absolute;\n  left: 50%;\n  bottom: 50px;\n  -webkit-transform: translate(-50%, 0);\n          transform: translate(-50%, 0);\n  cursor: pointer;\n  font-family: \"Dubai-Light\", sans-serif;\n}\n.tabs .tab[data-v-c930f8d0] {\n  margin: 10px;\n  padding: 2px;\n}\n.tabs .highlighted[data-v-c930f8d0] {\n  font-family: \"Dubai-Regular\", sans-serif;\n  border-bottom: 1px solid red;\n}\n.watch-now[data-v-c930f8d0] {\n  position: absolute;\n  top: 40%;\n  right: 25%;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n}\nimg.channel-logo[data-v-c930f8d0] {\n  -o-object-fit: contain;\n     object-fit: contain;\n  margin-bottom: 30px;\n}\n@media screen and (max-width: 700px) {\nimg.logo[data-v-c930f8d0] {\n    padding: 50px 10px;\n    width: 100px;\n}\n}", ""]);
+exports.push([module.i, ".button[data-v-c930f8d0] {\n  text-decoration: none;\n  color: white;\n  padding: 10px 35px;\n  box-shadow: 0 0 0 2px #d60000;\n  border-radius: 40px;\n  -webkit-transition: 0.2s;\n  transition: 0.2s;\n  text-align: center;\n  font-size: 1.3rem;\n}\n.button[data-v-c930f8d0]:hover {\n  background: rgba(201, 201, 201, 0.219);\n  box-shadow: 0 0 0 3px #d60000;\n}\n.button.channel-button[data-v-c930f8d0]:hover {\n  background: #d60000;\n}\n.featured .bottom-gradient[data-v-c930f8d0] {\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  height: 150px;\n  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#03090f));\n  background: linear-gradient(transparent, #03090f);\n}\nimg.logo[data-v-c930f8d0] {\n  padding: 50px;\n  width: 15vw;\n}\n.tabs[data-v-c930f8d0] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  position: absolute;\n  left: 50%;\n  bottom: 50px;\n  -webkit-transform: translate(-50%, 0);\n          transform: translate(-50%, 0);\n  cursor: pointer;\n  font-family: \"Dubai-Light\", sans-serif;\n}\n.tabs .tab[data-v-c930f8d0] {\n  margin: 10px;\n  padding: 2px;\n}\n.tabs .highlighted[data-v-c930f8d0] {\n  font-family: \"Dubai-Regular\", sans-serif;\n  border-bottom: 1px solid red;\n}\n.watch-now[data-v-c930f8d0] {\n  position: absolute;\n  top: 40%;\n  right: 25%;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n}\n.watch-now .watch-now-title[data-v-c930f8d0] {\n  margin: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n}\nimg.channel-logo[data-v-c930f8d0] {\n  -o-object-fit: contain;\n     object-fit: contain;\n  margin-bottom: 30px;\n}\n@media screen and (max-width: 700px) {\nimg.logo[data-v-c930f8d0] {\n    padding: 50px 10px;\n    width: 100px;\n}\n}", ""]);
 
 // exports
 
@@ -102955,11 +102973,7 @@ var render = function() {
                   staticClass: "tab live-tv",
                   class: { highlighted: _vm.isHighlighted === "live-tv" }
                 },
-                [
-                  _vm._v(
-                    _vm._s(_vm.locale === "_ar" ? "قنوات التلفاز" : "LiveTV")
-                  )
-                ]
+                [_vm._v(_vm._s(_vm.locale === "_ar" ? "التلفاز" : "LiveTV"))]
               )
             ]),
             _c("router-link", { attrs: { to: "/home/schedule" } }, [
@@ -103009,10 +103023,17 @@ var render = function() {
               },
               [
                 _vm._v(
-                  _vm._s(_vm.countDown || _vm.homePromo["title" + _vm.locale])
+                  _vm._s(
+                    _vm.countDown || _vm.locale === "_ar"
+                      ? "شاهد الان"
+                      : "Watch Now"
+                  )
                 )
               ]
-            )
+            ),
+            _c("div", { staticClass: "watch-now-title" }, [
+              _vm._v(_vm._s(_vm.homePromo["title" + _vm.locale]))
+            ])
           ],
           1
         )

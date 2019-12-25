@@ -42,8 +42,9 @@
   }
 
   .collapse {
+    padding: 3px 0;
     overflow: hidden;
-    height: 12.5vw;
+    height: 12.7vw;
   }
 
   .see-more {

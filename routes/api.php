@@ -46,6 +46,9 @@ Route::get('/game_date', function () {
   return response()->json(['game_date' => $gameDate], 200);
 });
 
+
+Route::get('/tv_guide_channels', 'TvGuideChannelController@index');
+
 Route::middleware('auth:api')->group(function () {
   Route::post('/landing', 'LandingController@store');
 

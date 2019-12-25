@@ -44,14 +44,13 @@
         draw_votes: 0,
         draw_ratio: 0,
         vote: null,
+        timer: null
       }
     },
-    created() {
-      this.getVotePost()
+    async created() {
+      await this.getVotePost()
 
-      setInterval(() => {
-        this.getVotePost()
-      }, 10000)
+      this.timer = setInterval(this.getVotePost, 10000)
     },
     components: {ChannelList, LoadingIndicator, HomeFeatured},
     methods: {
@@ -69,16 +68,17 @@
         this.vote = res.vote
       },
       async voteTo(vote) {
-        const res = await newVote({vote})
-
-        this.getVotePost()
-
+        await newVote({vote})
+        await this.getVotePost()
       }
     },
     computed: {
       locale() {
         return this.$store.state.locale
       }
+    },
+    destroyed() {
+      clearInterval(this.timer)
     }
 
   }

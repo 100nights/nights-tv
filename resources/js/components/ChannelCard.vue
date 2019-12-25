@@ -26,16 +26,16 @@
   .channel-img {
     margin-right: 10px;
     /*margin-bottom: 10px;*/
-    height: 12.5vw;
-    width: 12.5vw;
+    height: 12.3vw;
+    width: 12.3vw;
     object-fit: cover;
     /*border-radius: 10px;*/
-    /*box-shadow: 0 0 0 2px silver;*/
     /*border: 1px solid silver;*/
-    transition: .5s;
+    transition: .3s;
 
     &:hover {
-      transform: scale(1.1);
+      /*transform: scale(1.1);*/
+      box-shadow: 0 0 0 3px silver;
     }
   }
 

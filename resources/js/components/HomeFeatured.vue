@@ -3,7 +3,7 @@
     .bottom-gradient
     .tabs
       router-link(to="/home/live-tv")
-        .tab.live-tv(:class="{highlighted: isHighlighted === 'live-tv'}") {{ locale === '_ar' ? 'قنوات التلفاز' : 'LiveTV'}}
+        .tab.live-tv(:class="{highlighted: isHighlighted === 'live-tv'}") {{ locale === '_ar' ? 'التلفاز' : 'LiveTV'}}
       router-link(to="/home/schedule")
         .tab.live-tv(:class="{highlighted: isHighlighted === 'schedule'}") {{ locale === '_ar' ? 'الجدول' : 'Schedule'}}
       router-link(to="/home/downloads")
@@ -11,7 +11,8 @@
 
     .watch-now
       img.channel-logo(:src="channelLogoPath" width="200px" height="100px")
-      router-link.button.channel-button(:to="channelPath") {{ countDown || homePromo['title' + locale] }}
+      router-link.button.channel-button(:to="channelPath") {{ countDown || locale === '_ar' ? 'شاهد الان' : 'Watch Now' }}
+      .watch-now-title {{ homePromo['title' + locale] }}
 
 </template>
 
@@ -48,7 +49,7 @@
         this.homePromo = home_promo
       },
       async startCountDown() {
-        let countDownDateString;
+        let countDownDateString
         try {
           const data = await getGameDate()
           console.log(data)
@@ -189,6 +190,11 @@
 
     display: flex;
     flex-direction: column;
+    .watch-now-title {
+      margin: 10px;
+      font-size: 1.5rem;
+      text-align: center;
+    }
   }
 
   img.channel-logo {

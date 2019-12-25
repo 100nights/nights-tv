@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef5be36-05e2-4a74-a989-29201fd1596e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/js/components/HomeFeatured.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/HomeFeatured.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +126,7 @@
   <component name="ProjectId" id="1USjlyF0mnp05vaFkWkjopWw1kP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -209,7 +211,12 @@
       <workItem from="1577043759176" duration="703000" />
       <workItem from="1577044564315" duration="758000" />
       <workItem from="1577090346888" duration="676000" />
-      <workItem from="1577093177573" duration="1405000" />
+      <workItem from="1577093177573" duration="2195000" />
+      <workItem from="1577131565496" duration="550000" />
+      <workItem from="1577179919502" duration="21000" />
+      <workItem from="1577181599737" duration="12499000" />
+      <workItem from="1577261843144" duration="2436000" />
+      <workItem from="1577268277386" duration="9079000" />
     </task>
     <servers />
   </component>
@@ -238,6 +245,10 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="339" y="126" key="#Plugins/39.23.1401.877@39.23.1401.877" timestamp="1577044383108" />
+    <state x="338" y="127" key="#SQL_Dialects" timestamp="1577192900766">
+      <screen x="39" y="23" width="1401" height="877" />
+    </state>
+    <state x="338" y="127" key="#SQL_Dialects/39.23.1401.877@39.23.1401.877" timestamp="1577192900766" />
     <state x="454" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1576428373794">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
@@ -246,11 +257,11 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="477" y="214" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/39.23.1401.877@39.23.1401.877" timestamp="1576493935473" />
-    <state x="477" y="222" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1577025375632">
+    <state x="477" y="222" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1577186471253">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="476" y="222" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/38.23.1402.877@38.23.1402.877" timestamp="1576661881290" />
-    <state x="477" y="222" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/39.23.1401.877@39.23.1401.877" timestamp="1577025375632" />
+    <state x="477" y="222" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/39.23.1401.877@39.23.1401.877" timestamp="1577186471253" />
     <state x="360" y="118" key="#phpunit.xml" timestamp="1576324813359">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
@@ -291,10 +302,10 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="469" y="211" width="540" height="540" key="StructurePopup/39.23.1401.877@39.23.1401.877" timestamp="1577044839039" />
-    <state width="592" height="445" key="SwitcherDM" timestamp="1577044447495">
+    <state width="592" height="445" key="SwitcherDM" timestamp="1577198250474">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
-    <state width="592" height="445" key="SwitcherDM/39.23.1401.877@39.23.1401.877" timestamp="1577044447495" />
+    <state width="592" height="445" key="SwitcherDM/39.23.1401.877@39.23.1401.877" timestamp="1577198250474" />
     <state x="521" y="379" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577044489469">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
@@ -303,9 +314,9 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="388" y="195" width="700" height="530" key="recent.locations.popup/39.23.1401.877@39.23.1401.877" timestamp="1577044442423" />
-    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1577103159310">
+    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1577279281682">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
-    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup/39.23.1401.877@39.23.1401.877" timestamp="1577103159310" />
+    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup/39.23.1401.877@39.23.1401.877" timestamp="1577279281682" />
   </component>
 </project>

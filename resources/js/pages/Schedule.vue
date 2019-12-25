@@ -25,6 +25,7 @@
       return {
         schedule: null,
         schedule_ar: null,
+        timer: null,
         week: {
           today: '',
           selected_day: {},
@@ -42,9 +43,9 @@
 
 
       await this.getSchedule(this.isHighlighted.date, localStorage.getItem('locale'))
-      setInterval(() => {
+      this.timer = setInterval(() => {
         this.getSchedule(this.isHighlighted.date)
-      }, 20000)
+      }, 10000)
     },
     methods: {
       async getSchedule(date) {
@@ -52,7 +53,7 @@
         const result = await getGames(date)
 
         this.schedule = result.schedule["competitions"].map(competition => {
-          const schedule = result.schedule;
+          const schedule = result.schedule
           const games = schedule.games.filter(
             ({competitionId}) => competitionId === competition.id
           )
@@ -63,7 +64,7 @@
         })
 
         this.schedule_ar = result.schedule_ar["competitions"].map(competition => {
-          const schedule = result.schedule_ar;
+          const schedule = result.schedule_ar
           const games = schedule.games.filter(
             ({competitionId}) => competitionId === competition.id
           )
@@ -122,6 +123,9 @@
       locale() {
         return store.state.locale
       }
+    },
+    destroyed() {
+      clearInterval(this.timer)
     }
   }
 </script>
