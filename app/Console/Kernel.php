@@ -22,19 +22,20 @@ class Kernel extends ConsoleKernel
 
   protected function schedule(Schedule $schedule)
   {
-//    $schedule->call(function () {
-//      $tomorrow = Carbon::now()->addDay()->format('d/m/Y');
-//      $afterTomorrow = Carbon::now()->addDays(2)->format('d/m/Y');
-//
-//      $this->makeSchedule($tomorrow);
-//      $this->makeSchedule($afterTomorrow);
-//
-//    })->daily();
-//
-//    $schedule->call(function () {
-//      $date = Carbon::now()->format('d/m/Y');
-//      $this->makeSchedule($date);
-//    })->everyMinute();
+    $schedule->call(function () {
+      $tomorrow = Carbon::now()->addDay()->format('d/m/Y');
+      $afterTomorrow = Carbon::now()->addDays(2)->format('d/m/Y');
+
+      $this->makeSchedule($tomorrow);
+      $this->makeSchedule($afterTomorrow);
+
+    })->daily();
+
+    $schedule->call(function () {
+      $date = Carbon::now()->format('d/m/Y');
+      $this->makeSchedule($date);
+    })->everyMinute();
+
     $client = new Client();
 
     $schedule->call(function () use ($client) {
