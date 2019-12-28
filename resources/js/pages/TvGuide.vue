@@ -10,9 +10,8 @@
     .right-col
       .timeline(v-if="timeline")
         .timeline-item(:key="item" v-for="item in timeline") {{ item }}
-      .program-row
-        .program(:key="program.id" v-for="program in programs" :style="'width: ' + program.total_div_width + 'px; min-width: ' + program.total_div_width + 'px;'") {{ program.title }}
-
+      .program-row(:key="channelPrograms.id" v-for="channelPrograms in programs")
+        .program(:key="program" v-for="program in channelPrograms.data" :style="`min-width: ${program.empty_div_width > program.total_div_width ? program.empty_div_width :  program.total_div_width}px; width: ${program.empty_div_width > program.total_div_width ? program.empty_div_width :  program.total_div_width}px`") {{ program.title }}
 
 </template>
 
@@ -22,7 +21,7 @@
   export default {
     name: "tv-guide",
     data() {
-      return {channels: null, programs: null, timeline: []}
+      return {channels: null, programs: [], timeline: []}
     },
     async created() {
       for (let i = 0; i < 48; i++) {
@@ -49,8 +48,15 @@
         const res = await getTvGuideChannels(1)
         this.channels = res.data
 
-        // get programs for each channel
-        this.programs = await getChannelPrograms(this.channels[0].channel_code)
+        for (let channel of this.channels) {
+          // get programs for each channel
+          const data = await getChannelPrograms(channel.channel_code)
+
+          const program = {id: channel.id, data}
+
+
+          this.programs.push(program)
+        }
       }
     }
   }
@@ -62,9 +68,11 @@
     min-height: 30px;
     text-align: center;
   }
+
   ul {
     list-style: none;
   }
+
   ul.channels li.channel {
     text-align: center;
     display: flex;
@@ -108,6 +116,7 @@
 
   .timeline {
     display: flex;
+
     .timeline-item {
       width: 144px;
       min-width: 144px;
@@ -124,6 +133,10 @@
     .program {
       border: 1px solid #555;
       min-height: 80px;
+      height: 80px;
+      overflow: hidden;
+      text-align: center;
+      line-height: 80px;
     }
   }
 </style>

@@ -5085,14 +5085,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "tv-guide",
   data: function data() {
     return {
       channels: null,
-      programs: null,
+      programs: [],
       timeline: []
     };
   },
@@ -5130,7 +5129,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getTvGuide: function getTvGuide() {
-      var res;
+      var res, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, channel, data, program;
+
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getTvGuide$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -5140,20 +5140,76 @@ __webpack_require__.r(__webpack_exports__);
 
             case 2:
               res = _context2.sent;
-              this.channels = res.data; // get programs for each channel
+              this.channels = res.data;
+              _iteratorNormalCompletion = true;
+              _didIteratorError = false;
+              _iteratorError = undefined;
+              _context2.prev = 7;
+              _iterator = this.channels[Symbol.iterator]();
 
-              _context2.next = 6;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_api_tv_guide__WEBPACK_IMPORTED_MODULE_1__["getChannelPrograms"])(this.channels[0].channel_code));
+            case 9:
+              if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
+                _context2.next = 19;
+                break;
+              }
 
-            case 6:
-              this.programs = _context2.sent;
+              channel = _step.value;
+              _context2.next = 13;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_api_tv_guide__WEBPACK_IMPORTED_MODULE_1__["getChannelPrograms"])(channel.channel_code));
 
-            case 7:
+            case 13:
+              data = _context2.sent;
+              program = {
+                id: channel.id,
+                data: data
+              };
+              this.programs.push(program);
+
+            case 16:
+              _iteratorNormalCompletion = true;
+              _context2.next = 9;
+              break;
+
+            case 19:
+              _context2.next = 25;
+              break;
+
+            case 21:
+              _context2.prev = 21;
+              _context2.t0 = _context2["catch"](7);
+              _didIteratorError = true;
+              _iteratorError = _context2.t0;
+
+            case 25:
+              _context2.prev = 25;
+              _context2.prev = 26;
+
+              if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+                _iterator["return"]();
+              }
+
+            case 28:
+              _context2.prev = 28;
+
+              if (!_didIteratorError) {
+                _context2.next = 31;
+                break;
+              }
+
+              throw _iteratorError;
+
+            case 31:
+              return _context2.finish(28);
+
+            case 32:
+              return _context2.finish(25);
+
+            case 33:
             case "end":
               return _context2.stop();
           }
         }
-      }, null, this);
+      }, null, this, [[7, 21, 25, 33], [26,, 28, 32]]);
     }
   }
 });
@@ -7351,7 +7407,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".left-col .title[data-v-09dfb921] {\n  border-bottom: 1px solid #555;\n  min-height: 30px;\n  text-align: center;\n}\nul[data-v-09dfb921] {\n  list-style: none;\n}\nul.channels li.channel[data-v-09dfb921] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  border-bottom: 1px solid #555;\n  min-height: 80px;\n}\nul.channels li.channel .container-img[data-v-09dfb921] {\n  float: left;\n  min-width: 190px;\n}\nul.channels li.channel .container-img > img[data-v-09dfb921] {\n  max-height: 40px !important;\n  max-width: 70% !important;\n}\nul.channels li.channel span[data-v-09dfb921] {\n  min-width: 60px;\n}\nul.channels li.channel img[data-v-09dfb921] {\n  height: auto;\n}\n.guide-container[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.guide-container .left-col[data-v-09dfb921] {\n  -webkit-box-flex: 1;\n          flex: 1;\n  overflow: hidden;\n}\n.guide-container .right-col[data-v-09dfb921] {\n  -webkit-box-flex: 4;\n          flex: 4;\n  overflow: auto;\n}\n.timeline[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.timeline .timeline-item[data-v-09dfb921] {\n  width: 144px;\n  min-width: 144px;\n  min-height: 30px;\n  border-right: 1px solid #555;\n  border-bottom: 1px solid #555;\n  padding-left: 10px;\n}\n.program-row[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.program-row .program[data-v-09dfb921] {\n  border: 1px solid #555;\n  min-height: 80px;\n}", ""]);
+exports.push([module.i, ".left-col .title[data-v-09dfb921] {\n  border-bottom: 1px solid #555;\n  min-height: 30px;\n  text-align: center;\n}\nul[data-v-09dfb921] {\n  list-style: none;\n}\nul.channels li.channel[data-v-09dfb921] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  border-bottom: 1px solid #555;\n  min-height: 80px;\n}\nul.channels li.channel .container-img[data-v-09dfb921] {\n  float: left;\n  min-width: 190px;\n}\nul.channels li.channel .container-img > img[data-v-09dfb921] {\n  max-height: 40px !important;\n  max-width: 70% !important;\n}\nul.channels li.channel span[data-v-09dfb921] {\n  min-width: 60px;\n}\nul.channels li.channel img[data-v-09dfb921] {\n  height: auto;\n}\n.guide-container[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.guide-container .left-col[data-v-09dfb921] {\n  -webkit-box-flex: 1;\n          flex: 1;\n  overflow: hidden;\n}\n.guide-container .right-col[data-v-09dfb921] {\n  -webkit-box-flex: 4;\n          flex: 4;\n  overflow: auto;\n}\n.timeline[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.timeline .timeline-item[data-v-09dfb921] {\n  width: 144px;\n  min-width: 144px;\n  min-height: 30px;\n  border-right: 1px solid #555;\n  border-bottom: 1px solid #555;\n  padding-left: 10px;\n}\n.program-row[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.program-row .program[data-v-09dfb921] {\n  border: 1px solid #555;\n  min-height: 80px;\n  height: 80px;\n  overflow: hidden;\n  text-align: center;\n  line-height: 80px;\n}", ""]);
 
 // exports
 
@@ -104006,41 +104062,52 @@ var render = function() {
         2
       )
     ]),
-    _c("div", { staticClass: "right-col" }, [
-      _vm.timeline
-        ? _c(
+    _c(
+      "div",
+      { staticClass: "right-col" },
+      [
+        _vm.timeline
+          ? _c(
+              "div",
+              { staticClass: "timeline" },
+              _vm._l(_vm.timeline, function(item) {
+                return _c("div", { key: item, staticClass: "timeline-item" }, [
+                  _vm._v(_vm._s(item))
+                ])
+              }),
+              0
+            )
+          : _vm._e(),
+        _vm._l(_vm.programs, function(channelPrograms) {
+          return _c(
             "div",
-            { staticClass: "timeline" },
-            _vm._l(_vm.timeline, function(item) {
-              return _c("div", { key: item, staticClass: "timeline-item" }, [
-                _vm._v(_vm._s(item))
-              ])
+            { key: channelPrograms.id, staticClass: "program-row" },
+            _vm._l(channelPrograms.data, function(program) {
+              return _c(
+                "div",
+                {
+                  key: program,
+                  staticClass: "program",
+                  style:
+                    "min-width: " +
+                    (program.empty_div_width > program.total_div_width
+                      ? program.empty_div_width
+                      : program.total_div_width) +
+                    "px; width: " +
+                    (program.empty_div_width > program.total_div_width
+                      ? program.empty_div_width
+                      : program.total_div_width) +
+                    "px"
+                },
+                [_vm._v(_vm._s(program.title))]
+              )
             }),
             0
           )
-        : _vm._e(),
-      _c(
-        "div",
-        { staticClass: "program-row" },
-        _vm._l(_vm.programs, function(program) {
-          return _c(
-            "div",
-            {
-              key: program.id,
-              staticClass: "program",
-              style:
-                "width: " +
-                program.total_div_width +
-                "px; min-width: " +
-                program.total_div_width +
-                "px;"
-            },
-            [_vm._v(_vm._s(program.title))]
-          )
-        }),
-        0
-      )
-    ])
+        })
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []
@@ -120661,7 +120728,7 @@ function getTvGuideChannels() {
 function getChannelPrograms(channelCode) {
   var date = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : moment__WEBPACK_IMPORTED_MODULE_1___default()().format('MM/DD/YYYY');
   return Object(_js_utils_request__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    url: "http://tv.sawadland.com/tv_guide?channel_code=".concat(channelCode, "&date=").concat(date),
+    url: "http://tv.sawadland.com/api/tv_guide?channel_code=".concat(channelCode, "&date=").concat(date),
     method: 'get'
   });
 }
