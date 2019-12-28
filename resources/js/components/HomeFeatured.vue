@@ -6,6 +6,8 @@
         .tab.live-tv(:class="{highlighted: isHighlighted === 'live-tv'}") {{ locale === '_ar' ? 'التلفاز' : 'LiveTV'}}
       router-link(to="/home/schedule")
         .tab.live-tv(:class="{highlighted: isHighlighted === 'schedule'}") {{ locale === '_ar' ? 'الجدول' : 'Schedule'}}
+      router-link(to="/home/tv-guide")
+        .tab.tv-guide(:class="{highlighted: isHighlighted === 'tv-guide'}") {{ locale === '_ar' ? 'الدليل' : 'Guide'}}
       router-link(to="/home/downloads")
         .tab.downloads(:class="{highlighted: isHighlighted === 'downloads'}") {{ locale === '_ar' ? 'التحميلات' : 'Downloads'}}
 
@@ -185,7 +187,7 @@
 
   .watch-now {
     position: absolute;
-    top: 40%;
+    top: 30%;
     right: 25%;
 
     display: flex;

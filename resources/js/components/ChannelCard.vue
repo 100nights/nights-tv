@@ -34,8 +34,7 @@
     transition: .3s;
 
     &:hover {
-      /*transform: scale(1.1);*/
-      box-shadow: 0 0 0 3px silver;
+      transform: scale(1.1);
     }
   }
 

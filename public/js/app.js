@@ -3755,6 +3755,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -5048,6 +5050,111 @@ __webpack_require__.r(__webpack_exports__);
   },
   destroyed: function destroyed() {
     clearInterval(this.timer);
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/TvGuide.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/TvGuide.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _api_tv_guide__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/tv_guide */ "./resources/js/api/tv_guide.js");
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "tv-guide",
+  data: function data() {
+    return {
+      channels: null,
+      programs: null,
+      timeline: []
+    };
+  },
+  created: function created() {
+    var i, timeMinutes, hours, minutes;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function created$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            for (i = 0; i < 48; i++) {
+              timeMinutes = i * 30;
+              hours = Math.floor(timeMinutes / 60);
+              minutes = timeMinutes % 60;
+
+              if (hours < 10) {
+                hours = "0".concat(hours);
+              }
+
+              if (minutes < 10) {
+                minutes = "0".concat(minutes);
+              }
+
+              this.timeline.push("".concat(hours, ": ").concat(minutes));
+            }
+
+            _context.next = 3;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(this.getTvGuide());
+
+          case 3:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, null, this);
+  },
+  methods: {
+    getTvGuide: function getTvGuide() {
+      var res;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getTvGuide$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_api_tv_guide__WEBPACK_IMPORTED_MODULE_1__["getTvGuideChannels"])(1));
+
+            case 2:
+              res = _context2.sent;
+              this.channels = res.data; // get programs for each channel
+
+              _context2.next = 6;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_api_tv_guide__WEBPACK_IMPORTED_MODULE_1__["getChannelPrograms"])(this.channels[0].channel_code));
+
+            case 6:
+              this.programs = _context2.sent;
+
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, null, this);
+    }
   }
 });
 
@@ -6940,7 +7047,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".channel-link[data-v-06039c18] {\n  scroll-snap-align: start;\n}\n.channel-img[data-v-06039c18] {\n  margin-right: 10px;\n  /*margin-bottom: 10px;*/\n  height: 12.3vw;\n  width: 12.3vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  /*border-radius: 10px;*/\n  /*border: 1px solid silver;*/\n  -webkit-transition: 0.3s;\n  transition: 0.3s;\n}\n.channel-img[data-v-06039c18]:hover {\n  /*transform: scale(1.1);*/\n  box-shadow: 0 0 0 3px silver;\n}\n@media screen and (max-width: 700px) {\n.channel-img[data-v-06039c18] {\n    width: 28vw;\n    height: 28vw;\n}\n}", ""]);
+exports.push([module.i, ".channel-link[data-v-06039c18] {\n  scroll-snap-align: start;\n}\n.channel-img[data-v-06039c18] {\n  margin-right: 10px;\n  /*margin-bottom: 10px;*/\n  height: 12.3vw;\n  width: 12.3vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  /*border-radius: 10px;*/\n  /*border: 1px solid silver;*/\n  -webkit-transition: 0.3s;\n  transition: 0.3s;\n}\n.channel-img[data-v-06039c18]:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n@media screen and (max-width: 700px) {\n.channel-img[data-v-06039c18] {\n    width: 28vw;\n    height: 28vw;\n}\n}", ""]);
 
 // exports
 
@@ -6959,7 +7066,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".channel-row-wrapper[data-v-a4be29fc] {\n  margin-bottom: 10px;\n}\n.collapse[data-v-a4be29fc] {\n  padding: 3px 0;\n  overflow: hidden;\n  height: 12.7vw;\n}\n.see-more[data-v-a4be29fc] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.see-more span[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 1.1rem;\n  cursor: pointer;\n  margin-right: 8px;\n  font-weight: bold;\n  color: #fff;\n  font-family: \"Dubai-Regular\", sans-serif;\n  /*&:hover {*/\n  /*  color: red;*/\n  /*}*/\n}\n.title[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 2rem;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n.channel-row[data-v-a4be29fc] {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n}\n@media screen and (max-width: 700px) {\n.collapse[data-v-a4be29fc] {\n    overflow: hidden;\n    height: 28vw;\n}\n}", ""]);
+exports.push([module.i, ".channel-row-wrapper[data-v-a4be29fc] {\n  margin-bottom: 10px;\n}\n.collapse[data-v-a4be29fc] {\n  padding: 3px 0;\n  overflow: hidden;\n  height: 12.3vw;\n}\n.see-more[data-v-a4be29fc] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.see-more span[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 1.1rem;\n  cursor: pointer;\n  margin-right: 8px;\n  font-weight: bold;\n  color: #fff;\n  font-family: \"Dubai-Regular\", sans-serif;\n  /*&:hover {*/\n  /*  color: red;*/\n  /*}*/\n}\n.title[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 2rem;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n.channel-row[data-v-a4be29fc] {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n}\n@media screen and (max-width: 700px) {\n.collapse[data-v-a4be29fc] {\n    overflow: hidden;\n    height: 28vw;\n}\n}", ""]);
 
 // exports
 
@@ -7016,7 +7123,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".button[data-v-c930f8d0] {\n  text-decoration: none;\n  color: white;\n  padding: 10px 35px;\n  box-shadow: 0 0 0 2px #d60000;\n  border-radius: 40px;\n  -webkit-transition: 0.2s;\n  transition: 0.2s;\n  text-align: center;\n  font-size: 1.3rem;\n}\n.button[data-v-c930f8d0]:hover {\n  background: rgba(201, 201, 201, 0.219);\n  box-shadow: 0 0 0 3px #d60000;\n}\n.button.channel-button[data-v-c930f8d0]:hover {\n  background: #d60000;\n}\n.featured .bottom-gradient[data-v-c930f8d0] {\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  height: 150px;\n  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#03090f));\n  background: linear-gradient(transparent, #03090f);\n}\nimg.logo[data-v-c930f8d0] {\n  padding: 50px;\n  width: 15vw;\n}\n.tabs[data-v-c930f8d0] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  position: absolute;\n  left: 50%;\n  bottom: 50px;\n  -webkit-transform: translate(-50%, 0);\n          transform: translate(-50%, 0);\n  cursor: pointer;\n  font-family: \"Dubai-Light\", sans-serif;\n}\n.tabs .tab[data-v-c930f8d0] {\n  margin: 10px;\n  padding: 2px;\n}\n.tabs .highlighted[data-v-c930f8d0] {\n  font-family: \"Dubai-Regular\", sans-serif;\n  border-bottom: 1px solid red;\n}\n.watch-now[data-v-c930f8d0] {\n  position: absolute;\n  top: 40%;\n  right: 25%;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n}\n.watch-now .watch-now-title[data-v-c930f8d0] {\n  margin: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n}\nimg.channel-logo[data-v-c930f8d0] {\n  -o-object-fit: contain;\n     object-fit: contain;\n  margin-bottom: 30px;\n}\n@media screen and (max-width: 700px) {\nimg.logo[data-v-c930f8d0] {\n    padding: 50px 10px;\n    width: 100px;\n}\n}", ""]);
+exports.push([module.i, ".button[data-v-c930f8d0] {\n  text-decoration: none;\n  color: white;\n  padding: 10px 35px;\n  box-shadow: 0 0 0 2px #d60000;\n  border-radius: 40px;\n  -webkit-transition: 0.2s;\n  transition: 0.2s;\n  text-align: center;\n  font-size: 1.3rem;\n}\n.button[data-v-c930f8d0]:hover {\n  background: rgba(201, 201, 201, 0.219);\n  box-shadow: 0 0 0 3px #d60000;\n}\n.button.channel-button[data-v-c930f8d0]:hover {\n  background: #d60000;\n}\n.featured .bottom-gradient[data-v-c930f8d0] {\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  height: 150px;\n  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#03090f));\n  background: linear-gradient(transparent, #03090f);\n}\nimg.logo[data-v-c930f8d0] {\n  padding: 50px;\n  width: 15vw;\n}\n.tabs[data-v-c930f8d0] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  position: absolute;\n  left: 50%;\n  bottom: 50px;\n  -webkit-transform: translate(-50%, 0);\n          transform: translate(-50%, 0);\n  cursor: pointer;\n  font-family: \"Dubai-Light\", sans-serif;\n}\n.tabs .tab[data-v-c930f8d0] {\n  margin: 10px;\n  padding: 2px;\n}\n.tabs .highlighted[data-v-c930f8d0] {\n  font-family: \"Dubai-Regular\", sans-serif;\n  border-bottom: 1px solid red;\n}\n.watch-now[data-v-c930f8d0] {\n  position: absolute;\n  top: 30%;\n  right: 25%;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n}\n.watch-now .watch-now-title[data-v-c930f8d0] {\n  margin: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n}\nimg.channel-logo[data-v-c930f8d0] {\n  -o-object-fit: contain;\n     object-fit: contain;\n  margin-bottom: 30px;\n}\n@media screen and (max-width: 700px) {\nimg.logo[data-v-c930f8d0] {\n    padding: 50px 10px;\n    width: 100px;\n}\n}", ""]);
 
 // exports
 
@@ -7226,6 +7333,25 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, ".tabs[data-v-3d4d0cc0] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n  font-family: \"Dubai-Light\", sans-serif;\n  text-align: center;\n  -webkit-box-pack: center;\n          justify-content: center;\n  margin-bottom: 50px;\n}\n.tabs .tab[data-v-3d4d0cc0] {\n  margin: 10px;\n  padding: 2px;\n  cursor: pointer;\n}\n.tabs .highlighted[data-v-3d4d0cc0] {\n  font-family: \"Dubai-Regular\", sans-serif;\n  border-bottom: 1px solid red;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/TvGuide.vue?vue&type=style&index=0&id=09dfb921&lang=scss&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/TvGuide.vue?vue&type=style&index=0&id=09dfb921&lang=scss&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".left-col .title[data-v-09dfb921] {\n  border-bottom: 1px solid #555;\n  min-height: 30px;\n  text-align: center;\n}\nul[data-v-09dfb921] {\n  list-style: none;\n}\nul.channels li.channel[data-v-09dfb921] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  border-bottom: 1px solid #555;\n  min-height: 80px;\n}\nul.channels li.channel .container-img[data-v-09dfb921] {\n  float: left;\n  min-width: 190px;\n}\nul.channels li.channel .container-img > img[data-v-09dfb921] {\n  max-height: 40px !important;\n  max-width: 70% !important;\n}\nul.channels li.channel span[data-v-09dfb921] {\n  min-width: 60px;\n}\nul.channels li.channel img[data-v-09dfb921] {\n  height: auto;\n}\n.guide-container[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.guide-container .left-col[data-v-09dfb921] {\n  -webkit-box-flex: 1;\n          flex: 1;\n  overflow: hidden;\n}\n.guide-container .right-col[data-v-09dfb921] {\n  -webkit-box-flex: 4;\n          flex: 4;\n  overflow: auto;\n}\n.timeline[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.timeline .timeline-item[data-v-09dfb921] {\n  width: 144px;\n  min-width: 144px;\n  min-height: 30px;\n  border-right: 1px solid #555;\n  border-bottom: 1px solid #555;\n  padding-left: 10px;\n}\n.program-row[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.program-row .program[data-v-09dfb921] {\n  border: 1px solid #555;\n  min-height: 80px;\n}", ""]);
 
 // exports
 
@@ -101934,6 +102060,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/TvGuide.vue?vue&type=style&index=0&id=09dfb921&lang=scss&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/TvGuide.vue?vue&type=style&index=0&id=09dfb921&lang=scss&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./TvGuide.vue?vue&type=style&index=0&id=09dfb921&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/TvGuide.vue?vue&type=style&index=0&id=09dfb921&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/App.vue?vue&type=style&index=0&id=91ac6b5c&lang=scss&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/App.vue?vue&type=style&index=0&id=91ac6b5c&lang=scss&scoped=true& ***!
@@ -102986,6 +103142,16 @@ var render = function() {
                 [_vm._v(_vm._s(_vm.locale === "_ar" ? "الجدول" : "Schedule"))]
               )
             ]),
+            _c("router-link", { attrs: { to: "/home/tv-guide" } }, [
+              _c(
+                "div",
+                {
+                  staticClass: "tab tv-guide",
+                  class: { highlighted: _vm.isHighlighted === "tv-guide" }
+                },
+                [_vm._v(_vm._s(_vm.locale === "_ar" ? "الدليل" : "Guide"))]
+              )
+            ]),
             _c("router-link", { attrs: { to: "/home/downloads" } }, [
               _c(
                 "div",
@@ -103789,6 +103955,93 @@ var render = function() {
     ],
     1
   )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/TvGuide.vue?vue&type=template&id=09dfb921&scoped=true&lang=pug&":
+/*!**********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/pug-plain-loader!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/TvGuide.vue?vue&type=template&id=09dfb921&scoped=true&lang=pug& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-fluid guide-container" }, [
+    _c("div", { staticClass: "left-col" }, [
+      _c(
+        "ul",
+        { staticClass: "channels" },
+        [
+          _c("div", { staticClass: "title" }, [_vm._v("Channels")]),
+          _vm._l(_vm.channels, function(channel) {
+            return _c("li", { key: channel.id, staticClass: "channel" }, [
+              _c("span", { staticClass: "channel-number" }, [
+                _vm._v(_vm._s("CH #" + channel.number))
+              ]),
+              _c("div", { staticClass: "container-img" }, [
+                _c("img", {
+                  attrs: {
+                    src:
+                      "//content.osn.com/logo/channel/cropped/" +
+                      channel.channel_code +
+                      ".png"
+                  }
+                })
+              ])
+            ])
+          })
+        ],
+        2
+      )
+    ]),
+    _c("div", { staticClass: "right-col" }, [
+      _vm.timeline
+        ? _c(
+            "div",
+            { staticClass: "timeline" },
+            _vm._l(_vm.timeline, function(item) {
+              return _c("div", { key: item, staticClass: "timeline-item" }, [
+                _vm._v(_vm._s(item))
+              ])
+            }),
+            0
+          )
+        : _vm._e(),
+      _c(
+        "div",
+        { staticClass: "program-row" },
+        _vm._l(_vm.programs, function(program) {
+          return _c(
+            "div",
+            {
+              key: program.id,
+              staticClass: "program",
+              style:
+                "width: " +
+                program.total_div_width +
+                "px; min-width: " +
+                program.total_div_width +
+                "px;"
+            },
+            [_vm._v(_vm._s(program.title))]
+          )
+        }),
+        0
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -120382,6 +120635,39 @@ function getGame() {
 
 /***/ }),
 
+/***/ "./resources/js/api/tv_guide.js":
+/*!**************************************!*\
+  !*** ./resources/js/api/tv_guide.js ***!
+  \**************************************/
+/*! exports provided: getTvGuideChannels, getChannelPrograms */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTvGuideChannels", function() { return getTvGuideChannels; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getChannelPrograms", function() { return getChannelPrograms; });
+/* harmony import */ var _js_utils_request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/js/utils/request */ "./resources/js/utils/request.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function getTvGuideChannels() {
+  var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+  return Object(_js_utils_request__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    url: "/tv_guide_channels?page=".concat(page),
+    method: 'get'
+  });
+}
+function getChannelPrograms(channelCode) {
+  var date = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : moment__WEBPACK_IMPORTED_MODULE_1___default()().format('YYYY-MM-DD');
+  return Object(_js_utils_request__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    url: "/tv_guide?channel_code=".concat(channelCode, "&date=").concat(date),
+    method: 'get'
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/api/vote.js":
 /*!**********************************!*\
   !*** ./resources/js/api/vote.js ***!
@@ -122211,6 +122497,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/TvGuide.vue":
+/*!****************************************!*\
+  !*** ./resources/js/pages/TvGuide.vue ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TvGuide_vue_vue_type_template_id_09dfb921_scoped_true_lang_pug___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TvGuide.vue?vue&type=template&id=09dfb921&scoped=true&lang=pug& */ "./resources/js/pages/TvGuide.vue?vue&type=template&id=09dfb921&scoped=true&lang=pug&");
+/* harmony import */ var _TvGuide_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TvGuide.vue?vue&type=script&lang=js& */ "./resources/js/pages/TvGuide.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _TvGuide_vue_vue_type_style_index_0_id_09dfb921_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TvGuide.vue?vue&type=style&index=0&id=09dfb921&lang=scss&scoped=true& */ "./resources/js/pages/TvGuide.vue?vue&type=style&index=0&id=09dfb921&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _TvGuide_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TvGuide_vue_vue_type_template_id_09dfb921_scoped_true_lang_pug___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TvGuide_vue_vue_type_template_id_09dfb921_scoped_true_lang_pug___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "09dfb921",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/TvGuide.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/TvGuide.vue?vue&type=script&lang=js&":
+/*!*****************************************************************!*\
+  !*** ./resources/js/pages/TvGuide.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TvGuide_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./TvGuide.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/TvGuide.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TvGuide_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/TvGuide.vue?vue&type=style&index=0&id=09dfb921&lang=scss&scoped=true&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/pages/TvGuide.vue?vue&type=style&index=0&id=09dfb921&lang=scss&scoped=true& ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TvGuide_vue_vue_type_style_index_0_id_09dfb921_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./TvGuide.vue?vue&type=style&index=0&id=09dfb921&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/TvGuide.vue?vue&type=style&index=0&id=09dfb921&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TvGuide_vue_vue_type_style_index_0_id_09dfb921_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TvGuide_vue_vue_type_style_index_0_id_09dfb921_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TvGuide_vue_vue_type_style_index_0_id_09dfb921_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TvGuide_vue_vue_type_style_index_0_id_09dfb921_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TvGuide_vue_vue_type_style_index_0_id_09dfb921_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/TvGuide.vue?vue&type=template&id=09dfb921&scoped=true&lang=pug&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/pages/TvGuide.vue?vue&type=template&id=09dfb921&scoped=true&lang=pug& ***!
+  \********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_TvGuide_vue_vue_type_template_id_09dfb921_scoped_true_lang_pug___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/pug-plain-loader!../../../node_modules/vue-loader/lib??vue-loader-options!./TvGuide.vue?vue&type=template&id=09dfb921&scoped=true&lang=pug& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/pug-plain-loader/index.js!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/TvGuide.vue?vue&type=template&id=09dfb921&scoped=true&lang=pug&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_TvGuide_vue_vue_type_template_id_09dfb921_scoped_true_lang_pug___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_pug_plain_loader_index_js_node_modules_vue_loader_lib_index_js_vue_loader_options_TvGuide_vue_vue_type_template_id_09dfb921_scoped_true_lang_pug___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/routes.js":
 /*!********************************!*\
   !*** ./resources/js/routes.js ***!
@@ -122230,6 +122603,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_ChannelList__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/ChannelList */ "./resources/js/pages/ChannelList.vue");
 /* harmony import */ var _components_RelatedList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/RelatedList */ "./resources/js/components/RelatedList.vue");
 /* harmony import */ var _pages_Schedule__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/Schedule */ "./resources/js/pages/Schedule.vue");
+/* harmony import */ var _pages_TvGuide__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./pages/TvGuide */ "./resources/js/pages/TvGuide.vue");
+
 
 
 
@@ -122267,6 +122642,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: 'schedule',
       components: {
         homeView: _pages_Schedule__WEBPACK_IMPORTED_MODULE_8__["default"]
+      }
+    }, {
+      name: "tv-guide",
+      path: 'tv-guide',
+      components: {
+        homeView: _pages_TvGuide__WEBPACK_IMPORTED_MODULE_9__["default"]
       }
     }]
   }, {

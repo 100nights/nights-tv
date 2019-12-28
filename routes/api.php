@@ -39,6 +39,7 @@ Route::get('/categories', 'CategoryController@index');
 Route::get('/categories/{category}', 'CategoryController@show');
 Route::get('/home_promo', 'HomePromoController@index');
 Route::get('/schedule', 'ScheduleController@index');
+Route::get('/tv_guide', 'TvChannelProgramsTableController@index');
 
 Route::get('/game_date', function () {
   $gameDate = GameDate::first();

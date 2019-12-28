@@ -10,8 +10,6 @@ class TvGuideChannelController extends Controller
 {
   public function index()
   {
-    $page = (int)(request('page') ?? 1);
-
     $tvGuideChannels = TvGuideChannel::query()->paginate(10);
     if ($tvGuideChannels->isNotEmpty()) {
       return response()->json($tvGuideChannels);

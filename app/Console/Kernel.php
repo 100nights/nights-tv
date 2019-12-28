@@ -66,6 +66,7 @@ class Kernel extends ConsoleKernel
             $channelProgramsTable = new TvChannelProgramsTable();
 
             $channelProgramsTable->duration_time = $this->dateToTimestamp($item->Durationtime);
+            $channelProgramsTable->date = $date;
             $channelProgramsTable->channel_code = $item->ChannelCode;
             $channelProgramsTable->is_playing = $item->IsPlaying;
             $channelProgramsTable->start_minute = $item->StartMinute;
@@ -91,13 +92,12 @@ class Kernel extends ConsoleKernel
           }
         }
       }
-    })->daily();
-
+    })->everyMinute();
   }
 
   protected function makeDate($day = 0)
   {
-    return Carbon::now()->addDays($day)->format('m/d/Y');
+    return Carbon::now()->addDays($day)->timezone('Asia/Baghdad')->format('m/d/Y');
   }
 
   protected function dateToTimestamp($dateString)
@@ -108,13 +108,14 @@ class Kernel extends ConsoleKernel
 
     $timestamp = preg_replace('/[^0-9]/', '', $dateString);
 
-    return date("Y-m-d H:i:s", $timestamp / 1000);
+    return Carbon::createFromTimestamp($timestamp / 1000, 'Asia/Baghdad')->format('Y-m-d H:i:s');
   }
 
   protected function getChannelProgramsTable(Client $client, array $params)
   {
     $res = $client->request(
-      'POST', 'https://www.osn.com/CMSPages/TVScheduleWebService.asmx/GetTVChannelsProgramTimeTable',
+     'POST',
+     'https://www.osn.com/CMSPages/TVScheduleWebService.asmx/GetTVChannelsProgramTimeTable',
       ['json' => $params]
     );
 

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef5be36-05e2-4a74-a989-29201fd1596e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_28_121606_add_date_to_tv_channel_programs_tables.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
     </list>
@@ -19,8 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Vue Single File Component" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -141,8 +143,9 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -216,7 +219,11 @@
       <workItem from="1577179919502" duration="21000" />
       <workItem from="1577181599737" duration="12499000" />
       <workItem from="1577261843144" duration="2436000" />
-      <workItem from="1577268277386" duration="9509000" />
+      <workItem from="1577268277386" duration="10069000" />
+      <workItem from="1577350828742" duration="9118000" />
+      <workItem from="1577440637074" duration="274000" />
+      <workItem from="1577442464377" duration="22000" />
+      <workItem from="1577517086404" duration="14203000" />
     </task>
     <servers />
   </component>
@@ -253,6 +260,10 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="454" y="260" key="#com.intellij.fileTypes.FileTypeChooser/39.23.1401.877@39.23.1401.877" timestamp="1576428373794" />
+    <state x="427" y="204" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1577441534975">
+      <screen x="38" y="23" width="1402" height="877" />
+    </state>
+    <state x="427" y="204" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/38.23.1402.877@38.23.1402.877" timestamp="1577441534975" />
     <state x="477" y="214" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576493935473">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
@@ -266,9 +277,10 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="360" y="118" key="#phpunit.xml/39.23.1401.877@39.23.1401.877" timestamp="1576324813359" />
-    <state x="311" y="23" key="CommitChangelistDialog2" timestamp="1576320970658">
-      <screen x="39" y="23" width="1401" height="877" />
+    <state x="310" y="23" key="CommitChangelistDialog2" timestamp="1577517127734">
+      <screen x="38" y="23" width="1402" height="877" />
     </state>
+    <state x="310" y="23" key="CommitChangelistDialog2/38.23.1402.877@38.23.1402.877" timestamp="1577517127734" />
     <state x="311" y="23" key="CommitChangelistDialog2/39.23.1401.877@39.23.1401.877" timestamp="1576320970658" />
     <state x="473" y="379" key="ComposerInitDialogKey" timestamp="1577006793408">
       <screen x="39" y="23" width="1401" height="877" />
@@ -294,18 +306,27 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="409" y="268" key="NewPhpClassDialog/39.23.1401.877@39.23.1401.877" timestamp="1577045165570" />
-    <state x="241" y="110" key="SettingsEditor" timestamp="1577044977956">
+    <state x="241" y="110" key="SettingsEditor" timestamp="1577521780513">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
-    <state x="241" y="110" key="SettingsEditor/39.23.1401.877@39.23.1401.877" timestamp="1577044977956" />
+    <state x="241" y="110" key="SettingsEditor/39.23.1401.877@39.23.1401.877" timestamp="1577521780513" />
     <state x="469" y="211" width="540" height="540" key="StructurePopup" timestamp="1577044839039">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="469" y="211" width="540" height="540" key="StructurePopup/39.23.1401.877@39.23.1401.877" timestamp="1577044839039" />
-    <state width="592" height="445" key="SwitcherDM" timestamp="1577198250474">
+    <state width="593" height="445" key="SwitcherDM" timestamp="1577365712470">
+      <screen x="38" y="23" width="1402" height="877" />
+    </state>
+    <state width="593" height="445" key="SwitcherDM/38.23.1402.877@38.23.1402.877" timestamp="1577365712470" />
+    <state width="592" height="445" key="SwitcherDM/39.23.1401.877@39.23.1401.877" timestamp="1577198250474" />
+    <state x="482" y="313" key="cloudConfig.PluginsDialog" timestamp="1577521866196">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
-    <state width="592" height="445" key="SwitcherDM/39.23.1401.877@39.23.1401.877" timestamp="1577198250474" />
+    <state x="482" y="313" key="cloudConfig.PluginsDialog/39.23.1401.877@39.23.1401.877" timestamp="1577521866196" />
+    <state x="502" y="313" key="cloudConfig.SelfSettingsDialog" timestamp="1577517626945">
+      <screen x="39" y="23" width="1401" height="877" />
+    </state>
+    <state x="502" y="313" key="cloudConfig.SelfSettingsDialog/39.23.1401.877@39.23.1401.877" timestamp="1577517626945" />
     <state x="521" y="379" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577044489469">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
@@ -314,9 +335,10 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="388" y="195" width="700" height="530" key="recent.locations.popup/39.23.1401.877@39.23.1401.877" timestamp="1577044442423" />
-    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1577279281682">
+    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1577533696825">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
-    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup/39.23.1401.877@39.23.1401.877" timestamp="1577279281682" />
+    <state x="403" y="213" width="671" height="676" key="search.everywhere.popup/38.23.1402.877@38.23.1402.877" timestamp="1577368713572" />
+    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup/39.23.1401.877@39.23.1401.877" timestamp="1577533696825" />
   </component>
 </project>

@@ -1,15 +1,16 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+import Vue from "vue"
+import VueRouter from "vue-router"
 
-import Home from "./pages/Home";
-import Landing from "./pages/Landing";
-import Downloads from "./pages/Downloads";
-import Player from "./pages/Player";
-import ChannelList from "./pages/ChannelList";
-import RelatedList from "./components/RelatedList";
+import Home from "./pages/Home"
+import Landing from "./pages/Landing"
+import Downloads from "./pages/Downloads"
+import Player from "./pages/Player"
+import ChannelList from "./pages/ChannelList"
+import RelatedList from "./components/RelatedList"
 import Schedule from "./pages/Schedule"
+import TvGuide from "./pages/TvGuide"
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: "history",
@@ -37,7 +38,6 @@ const router = new VueRouter({
           components: {
             homeView: Downloads
           },
-
         },
         {
           name: "schedule",
@@ -45,7 +45,13 @@ const router = new VueRouter({
           components: {
             homeView: Schedule
           },
-
+        },
+        {
+          name: "tv-guide",
+          path: 'tv-guide',
+          components: {
+            homeView: TvGuide
+          },
         }
 
       ]
@@ -73,6 +79,6 @@ const router = new VueRouter({
       ]
     }
   ]
-});
+})
 
-export default router;
+export default router
