@@ -18,7 +18,7 @@ class TvChannelProgramsTableController extends Controller
 
     $programs = TvChannelProgramsTable::query()
       ->where('channel_code', $channelCode)
-      ->where('start_date_time', 'like', $date . '%')
+      ->where('date', $date)
       ->get();
 
     return response()->json($programs);

@@ -120659,9 +120659,9 @@ function getTvGuideChannels() {
   });
 }
 function getChannelPrograms(channelCode) {
-  var date = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : moment__WEBPACK_IMPORTED_MODULE_1___default()().format('YYYY-MM-DD');
+  var date = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : moment__WEBPACK_IMPORTED_MODULE_1___default()().format('MM/DD/YYYY');
   return Object(_js_utils_request__WEBPACK_IMPORTED_MODULE_0__["default"])({
-    url: "/tv_guide?channel_code=".concat(channelCode, "&date=").concat(date),
+    url: "http://tv.sawadland.com/tv_guide?channel_code=".concat(channelCode, "&date=").concat(date),
     method: 'get'
   });
 }

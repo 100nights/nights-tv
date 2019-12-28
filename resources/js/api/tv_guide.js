@@ -8,9 +8,9 @@ export function getTvGuideChannels(page = 1) {
   })
 }
 
-export function getChannelPrograms(channelCode, date = moment().format('YYYY-MM-DD')) {
+export function getChannelPrograms(channelCode, date = moment().format('MM/DD/YYYY')) {
   return request({
-    url: `/tv_guide?channel_code=${channelCode}&date=${date}`,
+    url: `http://tv.sawadland.com/tv_guide?channel_code=${channelCode}&date=${date}`,
     method: 'get'
   })
 }
