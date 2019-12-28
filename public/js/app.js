@@ -5067,6 +5067,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _api_tv_guide__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/tv_guide */ "./resources/js/api/tv_guide.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
@@ -5096,6 +5098,10 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "tv-guide",
@@ -5105,7 +5111,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       programs: [],
       timeline: [],
       current_page: 0,
-      last_page: 1
+      last_page: 1,
+      nowPosition: 0,
+      nowInterval: null
     };
   },
   created: function created() {
@@ -5130,17 +5138,31 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
               this.timeline.push("".concat(hours, ": ").concat(minutes));
             }
 
-            _context.next = 3;
+            this.updateNowPosition();
+            this.nowInterval = setInterval(this.updateNowPosition, 60000);
+            _context.next = 5;
             return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(this.loadMore());
 
-          case 3:
+          case 5:
           case "end":
             return _context.stop();
         }
       }
     }, null, this);
   },
+  mounted: function mounted() {
+    document.querySelector('.right-col').scroll({
+      left: this.nowPosition - 200,
+      behavior: "smooth"
+    });
+  },
   methods: {
+    updateNowPosition: function updateNowPosition() {
+      var minutes = parseInt(moment__WEBPACK_IMPORTED_MODULE_2___default()().format('M'));
+      var hours = parseInt(moment__WEBPACK_IMPORTED_MODULE_2___default()().format('H'));
+      var totalMinutes = hours * 60 + minutes;
+      this.nowPosition = totalMinutes / 30 * 144;
+    },
     loadMore: function loadMore() {
       var res, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, channel, data, program;
 
@@ -5231,6 +5253,14 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         }
       }, null, this, [[10, 24, 28, 36], [29,, 31, 35]]);
     }
+  },
+  computed: {
+    locale: function locale() {
+      return this.$store.state.locale;
+    }
+  },
+  destroyed: function destroyed() {
+    clearInterval(this.nowInterval);
   }
 });
 
@@ -7427,7 +7457,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".left-col .title[data-v-09dfb921] {\n  border-bottom: 1px solid #555;\n  min-height: 30px;\n  text-align: center;\n}\nul[data-v-09dfb921] {\n  list-style: none;\n}\nul.channels li.channel[data-v-09dfb921] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  border-bottom: 1px solid #555;\n  min-height: 80px;\n}\nul.channels li.channel .container-img[data-v-09dfb921] {\n  float: left;\n  min-width: 190px;\n}\nul.channels li.channel .container-img > img[data-v-09dfb921] {\n  max-height: 40px !important;\n  max-width: 70% !important;\n}\nul.channels li.channel span[data-v-09dfb921] {\n  min-width: 60px;\n}\nul.channels li.channel img[data-v-09dfb921] {\n  height: auto;\n}\n.guide-container[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.guide-container .left-col[data-v-09dfb921] {\n  -webkit-box-flex: 1;\n          flex: 1;\n  overflow: hidden;\n}\n.guide-container .right-col[data-v-09dfb921] {\n  -webkit-box-flex: 4;\n          flex: 4;\n  overflow: auto;\n}\n.timeline[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.timeline .timeline-item[data-v-09dfb921] {\n  width: 144px;\n  min-width: 144px;\n  min-height: 30px;\n  border-right: 1px solid #555;\n  border-bottom: 1px solid #555;\n  padding-left: 10px;\n}\n.program-row[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.program-row .program[data-v-09dfb921] {\n  border: 1px solid #555;\n  min-height: 80px;\n  height: 80px;\n  overflow: hidden;\n  text-align: center;\n  line-height: 80px;\n}\n.load-more[data-v-09dfb921] {\n  margin: 10px 50px;\n  text-align: center;\n  cursor: pointer;\n  padding: 5px;\n}", ""]);
+exports.push([module.i, ".left-col .title[data-v-09dfb921] {\n  border-bottom: 1px solid #555;\n  min-height: 30px;\n  text-align: center;\n}\nul[data-v-09dfb921] {\n  list-style: none;\n}\nul.channels li.channel[data-v-09dfb921] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  border-bottom: 1px solid #555;\n  min-height: 80px;\n}\nul.channels li.channel .container-img[data-v-09dfb921] {\n  float: left;\n  min-width: 190px;\n}\nul.channels li.channel .container-img > img[data-v-09dfb921] {\n  max-height: 40px !important;\n  max-width: 70% !important;\n}\nul.channels li.channel span[data-v-09dfb921] {\n  min-width: 60px;\n}\nul.channels li.channel img[data-v-09dfb921] {\n  height: auto;\n}\n.guide-container[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 200px;\n}\n.guide-container .left-col[data-v-09dfb921] {\n  overflow: hidden;\n  min-width: 250px;\n}\n.guide-container .right-col[data-v-09dfb921] {\n  position: relative;\n  overflow: auto;\n}\n.timeline[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.timeline .timeline-item[data-v-09dfb921] {\n  width: 144px;\n  min-width: 144px;\n  min-height: 30px;\n  border-right: 1px solid #555;\n  border-bottom: 1px solid #555;\n  padding-left: 10px;\n}\n.program-row[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.program-row .program[data-v-09dfb921] {\n  border: 1px solid #555;\n  min-height: 80px;\n  height: 80px;\n  overflow: hidden;\n  text-align: center;\n  line-height: 80px;\n}\n.load-more[data-v-09dfb921] {\n  position: absolute;\n  left: 50%;\n  text-align: center;\n  cursor: pointer;\n  padding: 5px;\n  margin-bottom: 200px;\n}\n.now[data-v-09dfb921] {\n  position: absolute;\n  width: 2px;\n  height: 100%;\n  background: #d60000;\n}\n.fade[data-v-09dfb921] {\n  position: absolute;\n  right: 0;\n  width: 100px;\n  height: 100%;\n  background: black;\n}", ""]);
 
 // exports
 
@@ -104087,6 +104117,11 @@ var render = function() {
         "div",
         { staticClass: "right-col" },
         [
+          _c("div", {
+            staticClass: "now",
+            style: "left: " + _vm.nowPosition + "px"
+          }),
+          _c("div", { staticClass: "fade" }),
           _vm.timeline
             ? _c(
                 "div",
@@ -104109,7 +104144,7 @@ var render = function() {
                 return _c(
                   "div",
                   {
-                    key: program,
+                    key: program.id,
                     staticClass: "program",
                     style:
                       "min-width: " +
@@ -104122,7 +104157,7 @@ var render = function() {
                         : program.total_div_width) +
                       "px"
                   },
-                  [_vm._v(_vm._s(program.title))]
+                  [_vm._v(_vm._s(program["title" + _vm.locale]))]
                 )
               }),
               0
@@ -104134,7 +104169,7 @@ var render = function() {
     ]),
     _vm.current_page < _vm.last_page
       ? _c(
-          "div",
+          "a",
           {
             staticClass: "load-more btn-secondary",
             on: { click: _vm.loadMore }

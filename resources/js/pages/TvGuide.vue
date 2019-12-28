@@ -9,21 +9,25 @@
             .container-img
               img(:src="`//content.osn.com/logo/channel/cropped/${channel.channel_code}.png`")
       .right-col
+        .now(:style="'left: ' + nowPosition + 'px'")
+        .fade
         .timeline(v-if="timeline")
           .timeline-item(:key="item" v-for="item in timeline") {{ item }}
         .program-row(:key="channelPrograms.id" v-for="channelPrograms in programs")
-          .program(:key="program" v-for="program in channelPrograms.data" :style="`min-width: ${program.empty_div_width > program.total_div_width ? program.empty_div_width :  program.total_div_width}px; width: ${program.empty_div_width > program.total_div_width ? program.empty_div_width :  program.total_div_width}px`") {{ program.title }}
-    .load-more(v-if="current_page < last_page"  @click="loadMore" class="btn-secondary") Load More
+          .program(:key="program.id" v-for="program in channelPrograms.data" :style="`min-width: ${program.empty_div_width > program.total_div_width ? program.empty_div_width :  program.total_div_width}px; width: ${program.empty_div_width > program.total_div_width ? program.empty_div_width :  program.total_div_width}px`") {{ program['title' + locale] }}
+
+    a.load-more(v-if="current_page < last_page"  @click="loadMore" class="btn-secondary") Load More
 
 </template>
 
 <script>
   import {getChannelPrograms, getTvGuideChannels} from "../api/tv_guide"
+  import moment from "moment"
 
   export default {
     name: "tv-guide",
     data() {
-      return {channels: [], programs: [], timeline: [], current_page: 0, last_page: 1}
+      return {channels: [], programs: [], timeline: [], current_page: 0, last_page: 1, nowPosition: 0, nowInterval: null}
     },
     async created() {
       for (let i = 0; i < 48; i++) {
@@ -41,9 +45,25 @@
         this.timeline.push(`${hours}: ${minutes}`)
       }
 
+      this.updateNowPosition()
+      this.nowInterval = setInterval(this.updateNowPosition, 60000)
+
+
       await this.loadMore()
     },
+    mounted() {
+      document.querySelector('.right-col').scroll({
+        left: this.nowPosition - 200,
+        behavior: "smooth"
+      })
+    },
     methods: {
+      updateNowPosition() {
+        const minutes = parseInt(moment().format('M'))
+        const hours = parseInt(moment().format('H'))
+        const totalMinutes = (hours * 60) + minutes
+        this.nowPosition = (totalMinutes / 30) * 144
+      },
       async loadMore() {
         if (this.current_page <= this.last_page) {
           const res = await getTvGuideChannels(this.current_page + 1)
@@ -55,13 +75,20 @@
             // get programs for each channel
             const data = await getChannelPrograms(channel.channel_code)
 
-            const program = {id: channel.id, data}
-
+            const program = { id: channel.id, data }
 
             this.programs.push(program)
           }
         }
       }
+    },
+    computed: {
+      locale() {
+        return this.$store.state.locale
+      }
+    },
+    destroyed() {
+      clearInterval(this.nowInterval)
     }
   }
 </script>
@@ -108,14 +135,15 @@
     display: flex;
 
     .left-col {
-      flex: 1;
       overflow: hidden;
+      min-width: 250px;
     }
 
     .right-col {
-      flex: 4;
+      position: relative;
       overflow: auto;
     }
+    margin-bottom: 200px;
   }
 
   .timeline {
@@ -145,9 +173,27 @@
   }
 
   .load-more {
-    margin: 10px 50px;
+    position: absolute;
+    left: 50%;
     text-align: center;
     cursor: pointer;
     padding: 5px;
+
+    margin-bottom: 200px;
+  }
+
+  .now {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: #d60000;
+  }
+
+  .fade {
+    position: absolute;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    background: black;
   }
 </style>

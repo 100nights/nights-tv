@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0ef5be36-05e2-4a74-a989-29201fd1596e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/pages/TvGuide.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/TvGuide.vue" afterDir="false" />
     </list>
@@ -223,7 +226,7 @@
       <workItem from="1577350828742" duration="9118000" />
       <workItem from="1577440637074" duration="274000" />
       <workItem from="1577442464377" duration="22000" />
-      <workItem from="1577517086404" duration="18829000" />
+      <workItem from="1577517086404" duration="22694000" />
     </task>
     <servers />
   </component>
@@ -335,10 +338,10 @@
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="388" y="195" width="700" height="530" key="recent.locations.popup/39.23.1401.877@39.23.1401.877" timestamp="1577044442423" />
-    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1577536549539">
+    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1577543871512">
       <screen x="39" y="23" width="1401" height="877" />
     </state>
     <state x="403" y="213" width="671" height="676" key="search.everywhere.popup/38.23.1402.877@38.23.1402.877" timestamp="1577368713572" />
-    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup/39.23.1401.877@39.23.1401.877" timestamp="1577536549539" />
+    <state x="404" y="213" width="670" height="676" key="search.everywhere.popup/39.23.1401.877@39.23.1401.877" timestamp="1577543871512" />
   </component>
 </project>
