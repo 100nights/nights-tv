@@ -1,17 +1,19 @@
 <template lang="pug">
-  .container-fluid.guide-container
-    .left-col
-      ul.channels
-        .title Channels
-        li.channel(:key="channel.id" v-for="channel in channels")
-          span.channel-number {{ 'CH #' + channel.number }}
-          .container-img
-            img(:src="`//content.osn.com/logo/channel/cropped/${channel.channel_code}.png`")
-    .right-col
-      .timeline(v-if="timeline")
-        .timeline-item(:key="item" v-for="item in timeline") {{ item }}
-      .program-row(:key="channelPrograms.id" v-for="channelPrograms in programs")
-        .program(:key="program" v-for="program in channelPrograms.data" :style="`min-width: ${program.empty_div_width > program.total_div_width ? program.empty_div_width :  program.total_div_width}px; width: ${program.empty_div_width > program.total_div_width ? program.empty_div_width :  program.total_div_width}px`") {{ program.title }}
+  div
+    .container-fluid.guide-container
+      .left-col
+        ul.channels
+          .title Channels
+          li.channel(:key="channel.id" v-for="channel in channels")
+            span.channel-number {{ 'CH #' + channel.number }}
+            .container-img
+              img(:src="`//content.osn.com/logo/channel/cropped/${channel.channel_code}.png`")
+      .right-col
+        .timeline(v-if="timeline")
+          .timeline-item(:key="item" v-for="item in timeline") {{ item }}
+        .program-row(:key="channelPrograms.id" v-for="channelPrograms in programs")
+          .program(:key="program" v-for="program in channelPrograms.data" :style="`min-width: ${program.empty_div_width > program.total_div_width ? program.empty_div_width :  program.total_div_width}px; width: ${program.empty_div_width > program.total_div_width ? program.empty_div_width :  program.total_div_width}px`") {{ program.title }}
+    .load-more(v-if="current_page < last_page"  @click="loadMore" class="btn-secondary") Load More
 
 </template>
 
@@ -21,7 +23,7 @@
   export default {
     name: "tv-guide",
     data() {
-      return {channels: null, programs: [], timeline: []}
+      return {channels: [], programs: [], timeline: [], current_page: 0, last_page: 1}
     },
     async created() {
       for (let i = 0; i < 48; i++) {
@@ -37,25 +39,27 @@
         }
 
         this.timeline.push(`${hours}: ${minutes}`)
-
       }
 
-      await this.getTvGuide()
+      await this.loadMore()
     },
     methods: {
-      async getTvGuide() {
-        // get channels
-        const res = await getTvGuideChannels(1)
-        this.channels = res.data
+      async loadMore() {
+        if (this.current_page <= this.last_page) {
+          const res = await getTvGuideChannels(this.current_page + 1)
+          this.current_page = res.current_page
+          this.last_page = res.last_page
+          this.channels = [...this.channels, ...res.data]
 
-        for (let channel of this.channels) {
-          // get programs for each channel
-          const data = await getChannelPrograms(channel.channel_code)
+          for (let channel of res.data) {
+            // get programs for each channel
+            const data = await getChannelPrograms(channel.channel_code)
 
-          const program = {id: channel.id, data}
+            const program = {id: channel.id, data}
 
 
-          this.programs.push(program)
+            this.programs.push(program)
+          }
         }
       }
     }
@@ -138,5 +142,12 @@
       text-align: center;
       line-height: 80px;
     }
+  }
+
+  .load-more {
+    margin: 10px 50px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px;
   }
 </style>

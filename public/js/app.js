@@ -5068,6 +5068,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _api_tv_guide__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../api/tv_guide */ "./resources/js/api/tv_guide.js");
 
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+//
+//
 //
 //
 //
@@ -5090,9 +5101,11 @@ __webpack_require__.r(__webpack_exports__);
   name: "tv-guide",
   data: function data() {
     return {
-      channels: null,
+      channels: [],
       programs: [],
-      timeline: []
+      timeline: [],
+      current_page: 0,
+      last_page: 1
     };
   },
   created: function created() {
@@ -5118,7 +5131,7 @@ __webpack_require__.r(__webpack_exports__);
             }
 
             _context.next = 3;
-            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(this.getTvGuide());
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(this.loadMore());
 
           case 3:
           case "end":
@@ -5128,36 +5141,43 @@ __webpack_require__.r(__webpack_exports__);
     }, null, this);
   },
   methods: {
-    getTvGuide: function getTvGuide() {
+    loadMore: function loadMore() {
       var res, _iteratorNormalCompletion, _didIteratorError, _iteratorError, _iterator, _step, channel, data, program;
 
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getTvGuide$(_context2) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function loadMore$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              _context2.next = 2;
-              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_api_tv_guide__WEBPACK_IMPORTED_MODULE_1__["getTvGuideChannels"])(1));
+              if (!(this.current_page <= this.last_page)) {
+                _context2.next = 36;
+                break;
+              }
 
-            case 2:
+              _context2.next = 3;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_api_tv_guide__WEBPACK_IMPORTED_MODULE_1__["getTvGuideChannels"])(this.current_page + 1));
+
+            case 3:
               res = _context2.sent;
-              this.channels = res.data;
+              this.current_page = res.current_page;
+              this.last_page = res.last_page;
+              this.channels = [].concat(_toConsumableArray(this.channels), _toConsumableArray(res.data));
               _iteratorNormalCompletion = true;
               _didIteratorError = false;
               _iteratorError = undefined;
-              _context2.prev = 7;
-              _iterator = this.channels[Symbol.iterator]();
+              _context2.prev = 10;
+              _iterator = res.data[Symbol.iterator]();
 
-            case 9:
+            case 12:
               if (_iteratorNormalCompletion = (_step = _iterator.next()).done) {
-                _context2.next = 19;
+                _context2.next = 22;
                 break;
               }
 
               channel = _step.value;
-              _context2.next = 13;
+              _context2.next = 16;
               return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_api_tv_guide__WEBPACK_IMPORTED_MODULE_1__["getChannelPrograms"])(channel.channel_code));
 
-            case 13:
+            case 16:
               data = _context2.sent;
               program = {
                 id: channel.id,
@@ -5165,51 +5185,51 @@ __webpack_require__.r(__webpack_exports__);
               };
               this.programs.push(program);
 
-            case 16:
-              _iteratorNormalCompletion = true;
-              _context2.next = 9;
-              break;
-
             case 19:
-              _context2.next = 25;
+              _iteratorNormalCompletion = true;
+              _context2.next = 12;
               break;
 
-            case 21:
-              _context2.prev = 21;
-              _context2.t0 = _context2["catch"](7);
+            case 22:
+              _context2.next = 28;
+              break;
+
+            case 24:
+              _context2.prev = 24;
+              _context2.t0 = _context2["catch"](10);
               _didIteratorError = true;
               _iteratorError = _context2.t0;
 
-            case 25:
-              _context2.prev = 25;
-              _context2.prev = 26;
+            case 28:
+              _context2.prev = 28;
+              _context2.prev = 29;
 
               if (!_iteratorNormalCompletion && _iterator["return"] != null) {
                 _iterator["return"]();
               }
 
-            case 28:
-              _context2.prev = 28;
+            case 31:
+              _context2.prev = 31;
 
               if (!_didIteratorError) {
-                _context2.next = 31;
+                _context2.next = 34;
                 break;
               }
 
               throw _iteratorError;
 
-            case 31:
+            case 34:
+              return _context2.finish(31);
+
+            case 35:
               return _context2.finish(28);
 
-            case 32:
-              return _context2.finish(25);
-
-            case 33:
+            case 36:
             case "end":
               return _context2.stop();
           }
         }
-      }, null, this, [[7, 21, 25, 33], [26,, 28, 32]]);
+      }, null, this, [[10, 24, 28, 36], [29,, 31, 35]]);
     }
   }
 });
@@ -7407,7 +7427,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".left-col .title[data-v-09dfb921] {\n  border-bottom: 1px solid #555;\n  min-height: 30px;\n  text-align: center;\n}\nul[data-v-09dfb921] {\n  list-style: none;\n}\nul.channels li.channel[data-v-09dfb921] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  border-bottom: 1px solid #555;\n  min-height: 80px;\n}\nul.channels li.channel .container-img[data-v-09dfb921] {\n  float: left;\n  min-width: 190px;\n}\nul.channels li.channel .container-img > img[data-v-09dfb921] {\n  max-height: 40px !important;\n  max-width: 70% !important;\n}\nul.channels li.channel span[data-v-09dfb921] {\n  min-width: 60px;\n}\nul.channels li.channel img[data-v-09dfb921] {\n  height: auto;\n}\n.guide-container[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.guide-container .left-col[data-v-09dfb921] {\n  -webkit-box-flex: 1;\n          flex: 1;\n  overflow: hidden;\n}\n.guide-container .right-col[data-v-09dfb921] {\n  -webkit-box-flex: 4;\n          flex: 4;\n  overflow: auto;\n}\n.timeline[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.timeline .timeline-item[data-v-09dfb921] {\n  width: 144px;\n  min-width: 144px;\n  min-height: 30px;\n  border-right: 1px solid #555;\n  border-bottom: 1px solid #555;\n  padding-left: 10px;\n}\n.program-row[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.program-row .program[data-v-09dfb921] {\n  border: 1px solid #555;\n  min-height: 80px;\n  height: 80px;\n  overflow: hidden;\n  text-align: center;\n  line-height: 80px;\n}", ""]);
+exports.push([module.i, ".left-col .title[data-v-09dfb921] {\n  border-bottom: 1px solid #555;\n  min-height: 30px;\n  text-align: center;\n}\nul[data-v-09dfb921] {\n  list-style: none;\n}\nul.channels li.channel[data-v-09dfb921] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  border-bottom: 1px solid #555;\n  min-height: 80px;\n}\nul.channels li.channel .container-img[data-v-09dfb921] {\n  float: left;\n  min-width: 190px;\n}\nul.channels li.channel .container-img > img[data-v-09dfb921] {\n  max-height: 40px !important;\n  max-width: 70% !important;\n}\nul.channels li.channel span[data-v-09dfb921] {\n  min-width: 60px;\n}\nul.channels li.channel img[data-v-09dfb921] {\n  height: auto;\n}\n.guide-container[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.guide-container .left-col[data-v-09dfb921] {\n  -webkit-box-flex: 1;\n          flex: 1;\n  overflow: hidden;\n}\n.guide-container .right-col[data-v-09dfb921] {\n  -webkit-box-flex: 4;\n          flex: 4;\n  overflow: auto;\n}\n.timeline[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.timeline .timeline-item[data-v-09dfb921] {\n  width: 144px;\n  min-width: 144px;\n  min-height: 30px;\n  border-right: 1px solid #555;\n  border-bottom: 1px solid #555;\n  padding-left: 10px;\n}\n.program-row[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.program-row .program[data-v-09dfb921] {\n  border: 1px solid #555;\n  min-height: 80px;\n  height: 80px;\n  overflow: hidden;\n  text-align: center;\n  line-height: 80px;\n}\n.load-more[data-v-09dfb921] {\n  margin: 10px 50px;\n  text-align: center;\n  cursor: pointer;\n  padding: 5px;\n}", ""]);
 
 // exports
 
@@ -104034,80 +104054,94 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid guide-container" }, [
-    _c("div", { staticClass: "left-col" }, [
-      _c(
-        "ul",
-        { staticClass: "channels" },
-        [
-          _c("div", { staticClass: "title" }, [_vm._v("Channels")]),
-          _vm._l(_vm.channels, function(channel) {
-            return _c("li", { key: channel.id, staticClass: "channel" }, [
-              _c("span", { staticClass: "channel-number" }, [
-                _vm._v(_vm._s("CH #" + channel.number))
-              ]),
-              _c("div", { staticClass: "container-img" }, [
-                _c("img", {
-                  attrs: {
-                    src:
-                      "//content.osn.com/logo/channel/cropped/" +
-                      channel.channel_code +
-                      ".png"
-                  }
-                })
+  return _c("div", [
+    _c("div", { staticClass: "container-fluid guide-container" }, [
+      _c("div", { staticClass: "left-col" }, [
+        _c(
+          "ul",
+          { staticClass: "channels" },
+          [
+            _c("div", { staticClass: "title" }, [_vm._v("Channels")]),
+            _vm._l(_vm.channels, function(channel) {
+              return _c("li", { key: channel.id, staticClass: "channel" }, [
+                _c("span", { staticClass: "channel-number" }, [
+                  _vm._v(_vm._s("CH #" + channel.number))
+                ]),
+                _c("div", { staticClass: "container-img" }, [
+                  _c("img", {
+                    attrs: {
+                      src:
+                        "//content.osn.com/logo/channel/cropped/" +
+                        channel.channel_code +
+                        ".png"
+                    }
+                  })
+                ])
               ])
-            ])
+            })
+          ],
+          2
+        )
+      ]),
+      _c(
+        "div",
+        { staticClass: "right-col" },
+        [
+          _vm.timeline
+            ? _c(
+                "div",
+                { staticClass: "timeline" },
+                _vm._l(_vm.timeline, function(item) {
+                  return _c(
+                    "div",
+                    { key: item, staticClass: "timeline-item" },
+                    [_vm._v(_vm._s(item))]
+                  )
+                }),
+                0
+              )
+            : _vm._e(),
+          _vm._l(_vm.programs, function(channelPrograms) {
+            return _c(
+              "div",
+              { key: channelPrograms.id, staticClass: "program-row" },
+              _vm._l(channelPrograms.data, function(program) {
+                return _c(
+                  "div",
+                  {
+                    key: program,
+                    staticClass: "program",
+                    style:
+                      "min-width: " +
+                      (program.empty_div_width > program.total_div_width
+                        ? program.empty_div_width
+                        : program.total_div_width) +
+                      "px; width: " +
+                      (program.empty_div_width > program.total_div_width
+                        ? program.empty_div_width
+                        : program.total_div_width) +
+                      "px"
+                  },
+                  [_vm._v(_vm._s(program.title))]
+                )
+              }),
+              0
+            )
           })
         ],
         2
       )
     ]),
-    _c(
-      "div",
-      { staticClass: "right-col" },
-      [
-        _vm.timeline
-          ? _c(
-              "div",
-              { staticClass: "timeline" },
-              _vm._l(_vm.timeline, function(item) {
-                return _c("div", { key: item, staticClass: "timeline-item" }, [
-                  _vm._v(_vm._s(item))
-                ])
-              }),
-              0
-            )
-          : _vm._e(),
-        _vm._l(_vm.programs, function(channelPrograms) {
-          return _c(
-            "div",
-            { key: channelPrograms.id, staticClass: "program-row" },
-            _vm._l(channelPrograms.data, function(program) {
-              return _c(
-                "div",
-                {
-                  key: program,
-                  staticClass: "program",
-                  style:
-                    "min-width: " +
-                    (program.empty_div_width > program.total_div_width
-                      ? program.empty_div_width
-                      : program.total_div_width) +
-                    "px; width: " +
-                    (program.empty_div_width > program.total_div_width
-                      ? program.empty_div_width
-                      : program.total_div_width) +
-                    "px"
-                },
-                [_vm._v(_vm._s(program.title))]
-              )
-            }),
-            0
-          )
-        })
-      ],
-      2
-    )
+    _vm.current_page < _vm.last_page
+      ? _c(
+          "div",
+          {
+            staticClass: "load-more btn-secondary",
+            on: { click: _vm.loadMore }
+          },
+          [_vm._v("Load More")]
+        )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
