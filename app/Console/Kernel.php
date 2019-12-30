@@ -40,59 +40,50 @@ class Kernel extends ConsoleKernel
 
     $schedule->call(function () use ($client) {
       $channels = TvGuideChannel::all();
+
       TvChannelProgramsTable::query()->delete();
-      $dates = [
-        $this->makeDate(),
-        $this->makeDate(1),
-        $this->makeDate(2),
-        $this->makeDate(3),
-        $this->makeDate(4),
-        $this->makeDate(5),
-        $this->makeDate(6),
-        $this->makeDate(7)
-      ];
 
-      foreach ($dates as $date) {
-        foreach ($channels as $channel) {
-          $res = $this->getChannelProgramsTable($client, [
-            'channelCode' => $channel->channel_code,
-            'hoursForMobile' => 12,
-            'isMobile' => false,
-            'newDate' => $date,
-            'selectedCountry' => 'IQ'
-          ]);
+      $date = $this->makeDate();
 
-          foreach ($res as $item) {
-            $channelProgramsTable = new TvChannelProgramsTable();
+      foreach ($channels as $channel) {
+        $res = $this->getChannelProgramsTable($client, [
+          'channelCode' => $channel->channel_code,
+          'hoursForMobile' => 12,
+          'isMobile' => false,
+          'newDate' => $date,
+          'selectedCountry' => 'IQ'
+        ]);
 
-            $channelProgramsTable->duration_time = $this->dateToTimestamp($item->Durationtime);
-            $channelProgramsTable->date = $date;
-            $channelProgramsTable->channel_code = $item->ChannelCode;
-            $channelProgramsTable->is_playing = $item->IsPlaying;
-            $channelProgramsTable->start_minute = $item->StartMinute;
-            $channelProgramsTable->end_minute = $item->EndMinute;
-            $channelProgramsTable->empty_div_width = $item->EmptyDivWidth;
-            $channelProgramsTable->total_div_width = $item->TotalDivWidth;
-            $channelProgramsTable->is_today_date = $item->IsTodayDate;
-            $channelProgramsTable->is_last_row = $item->IsLastRow;
-            $channelProgramsTable->start_date_time = $this->dateToTimestamp($item->StartDateTime);
-            $channelProgramsTable->end_date_time = $this->dateToTimestamp($item->EndDateTime);
-            $channelProgramsTable->title = $item->Title;
-            $channelProgramsTable->title_ar = $item->Arab_Title;
-            $channelProgramsTable->genre = $item->GenreEnglishName;
-            $channelProgramsTable->genre_ar = $item->GenreArabicName;
-            $channelProgramsTable->channel_number = $item->ChannelNumber;
-            $channelProgramsTable->duration = $this->dateToTimestamp($item->Duration);
-            $channelProgramsTable->showtime = $this->dateToTimestamp($item->Showtime);
-            $channelProgramsTable->episode_id = $item->EpisodeId;
-            $channelProgramsTable->program_type = $item->ProgramType;
-            $channelProgramsTable->epguniqid = $item->EPGUNIQID;
+        foreach ($res as $item) {
+          $channelProgramsTable = new TvChannelProgramsTable();
 
-            $channelProgramsTable->save();
-          }
+          $channelProgramsTable->duration_time = $this->dateToTimestamp($item->Durationtime);
+          $channelProgramsTable->date = $date;
+          $channelProgramsTable->channel_code = $item->ChannelCode;
+          $channelProgramsTable->is_playing = $item->IsPlaying;
+          $channelProgramsTable->start_minute = $item->StartMinute;
+          $channelProgramsTable->end_minute = $item->EndMinute;
+          $channelProgramsTable->empty_div_width = $item->EmptyDivWidth;
+          $channelProgramsTable->total_div_width = $item->TotalDivWidth;
+          $channelProgramsTable->is_today_date = $item->IsTodayDate;
+          $channelProgramsTable->is_last_row = $item->IsLastRow;
+          $channelProgramsTable->start_date_time = $this->dateToTimestamp($item->StartDateTime);
+          $channelProgramsTable->end_date_time = $this->dateToTimestamp($item->EndDateTime);
+          $channelProgramsTable->title = $item->Title;
+          $channelProgramsTable->title_ar = $item->Arab_Title;
+          $channelProgramsTable->genre = $item->GenreEnglishName;
+          $channelProgramsTable->genre_ar = $item->GenreArabicName;
+          $channelProgramsTable->channel_number = $item->ChannelNumber;
+          $channelProgramsTable->duration = $this->dateToTimestamp($item->Duration);
+          $channelProgramsTable->showtime = $this->dateToTimestamp($item->Showtime);
+          $channelProgramsTable->episode_id = $item->EpisodeId;
+          $channelProgramsTable->program_type = $item->ProgramType;
+          $channelProgramsTable->epguniqid = $item->EPGUNIQID;
+
+          $channelProgramsTable->save();
         }
       }
-    })->daily();
+    })->hourly();
   }
 
   protected function makeDate($day = 0)
@@ -114,8 +105,8 @@ class Kernel extends ConsoleKernel
   protected function getChannelProgramsTable(Client $client, array $params)
   {
     $res = $client->request(
-     'POST',
-     'https://www.osn.com/CMSPages/TVScheduleWebService.asmx/GetTVChannelsProgramTimeTable',
+      'POST',
+      'https://www.osn.com/CMSPages/TVScheduleWebService.asmx/GetTVChannelsProgramTimeTable',
       ['json' => $params]
     );
 
@@ -160,11 +151,7 @@ class Kernel extends ConsoleKernel
     return ['en' => $en, 'ar' => $ar];
   }
 
-  /**
-   * Register the commands for the application.
-   *
-   * @return void
-   */
+
   protected function commands()
   {
     $this->load(__DIR__ . '/Commands');

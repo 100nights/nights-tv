@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Storage;
 
 class ChannelController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
   public function index()
   {
     $channels = Channel::all();
@@ -20,12 +15,6 @@ class ChannelController extends Controller
     return response()->json(['channels' => $channels]);
   }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
   public function store(Request $request)
   {
 
@@ -44,6 +33,10 @@ class ChannelController extends Controller
       $channel->url = $request->url;
       $channel->category_id = $request->category_id;
 
+      if ($request->channel_code) {
+        $channel->channel_code = $request->channel_code;
+      }
+
       $channel->save();
 
       return response()->json(['channel' => $channel, 'status' => 'created']);
@@ -52,26 +45,11 @@ class ChannelController extends Controller
     }
   }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  \App\Channel  $channel
-   * @return \Illuminate\Http\Response
-   */
   public function show(Channel $channel)
   {
     return response()->json(['channel' => $channel]);
   }
 
-
-
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  \App\Channel  $channel
-   * @return \Illuminate\Http\Response
-   */
   public function update(Request $request, Channel $channel)
   {
     $request->validate([
@@ -89,18 +67,14 @@ class ChannelController extends Controller
     $channel->image = $request->image;
     $channel->url = $request->url;
     $channel->category_id = $request->category_id;
-
+    if ($request->channel_code) {
+      $channel->channel_code = $request->channel_code;
+    }
     $channel->save();
 
     return response()->json(['channel' => $channel]);
   }
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  \App\Channel  $channel
-   * @return \Illuminate\Http\Response
-   */
   public function destroy(Channel $channel)
   {
     try {

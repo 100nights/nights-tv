@@ -14,9 +14,9 @@
         .timeline(v-if="timeline")
           .timeline-item(:key="item" v-for="item in timeline") {{ item }}
         .program-row(:key="channelPrograms.id" v-for="channelPrograms in programs")
-          .program(:key="program.id" v-for="program in channelPrograms.data" :style="`min-width: ${program.empty_div_width > program.total_div_width ? program.empty_div_width :  program.total_div_width}px; width: ${program.empty_div_width > program.total_div_width ? program.empty_div_width :  program.total_div_width}px`") {{ program['title' + locale] }}
+          .program(:key="program.id" v-for="(program, index) in channelPrograms.data" :style="calcWidth(channelPrograms.data, index)") {{ program['title' + locale] }}
 
-    a.load-more(v-if="current_page < last_page"  @click="loadMore" class="btn-secondary") Load More
+    a.button.load-more(v-if="current_page < last_page"  @click="loadMore") Load More
 
 </template>
 
@@ -27,7 +27,15 @@
   export default {
     name: "tv-guide",
     data() {
-      return {channels: [], programs: [], timeline: [], current_page: 0, last_page: 1, nowPosition: 0, nowInterval: null}
+      return {
+        channels: [],
+        programs: [],
+        timeline: [],
+        current_page: 0,
+        last_page: 1,
+        nowPosition: 0,
+        nowInterval: null
+      }
     },
     async created() {
       for (let i = 0; i < 48; i++) {
@@ -58,12 +66,32 @@
       })
     },
     methods: {
+      calcWidth(programs, index) {
+        let width = 500;
+        if (index === 0) {
+          width = programs[index].empty_div_width
+        } else {
+          width = programs[index].total_div_width
+        }
+        // else if (next) {
+        //   const currentStartDate = moment(current.start_date_time, 'YYYY-MM-DD hh:mm:ss')
+        //   const nextStartDate = moment(next.start_date_time, 'YYYY-MM-DD hh:mm:ss')
+        //   const minutes = nextStartDate.diff(currentStartDate, 'minutes')
+        //   width = 3.857142857142857 * minutes;
+        // } else {
+        //   width = programs[index].total_div_width
+        // }
+
+        return `min-width: ${width}px;`
+      },
       updateNowPosition() {
-        const minutes = parseInt(moment().format('M'))
-        const hours = parseInt(moment().format('H'))
+        const now = moment()
+        const minutes = parseInt(now.format('m'))
+        const hours = parseInt(now.format('H'))
         const totalMinutes = (hours * 60) + minutes
         this.nowPosition = (totalMinutes / 30) * 144
       },
+
       async loadMore() {
         if (this.current_page <= this.last_page) {
           const res = await getTvGuideChannels(this.current_page + 1)
@@ -75,7 +103,7 @@
             // get programs for each channel
             const data = await getChannelPrograms(channel.channel_code)
 
-            const program = { id: channel.id, data }
+            const program = {id: channel.id, data}
 
             this.programs.push(program)
           }
@@ -143,7 +171,8 @@
       position: relative;
       overflow: auto;
     }
-    margin-bottom: 200px;
+
+    margin-bottom: 20px;
   }
 
   .timeline {
@@ -175,11 +204,13 @@
   .load-more {
     position: absolute;
     left: 50%;
-    text-align: center;
+    transform: translateX(-50%);
+    font-size: 1rem;
     cursor: pointer;
-    padding: 5px;
 
-    margin-bottom: 200px;
+    &:hover {
+      background: #d60000;
+    }
   }
 
   .now {

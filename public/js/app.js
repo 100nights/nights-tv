@@ -5157,9 +5157,29 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     });
   },
   methods: {
+    calcWidth: function calcWidth(programs, index) {
+      var width = 500;
+
+      if (index === 0) {
+        width = programs[index].empty_div_width;
+      } else {
+        width = programs[index].total_div_width;
+      } // else if (next) {
+      //   const currentStartDate = moment(current.start_date_time, 'YYYY-MM-DD hh:mm:ss')
+      //   const nextStartDate = moment(next.start_date_time, 'YYYY-MM-DD hh:mm:ss')
+      //   const minutes = nextStartDate.diff(currentStartDate, 'minutes')
+      //   width = 3.857142857142857 * minutes;
+      // } else {
+      //   width = programs[index].total_div_width
+      // }
+
+
+      return "min-width: ".concat(width, "px;");
+    },
     updateNowPosition: function updateNowPosition() {
-      var minutes = parseInt(moment__WEBPACK_IMPORTED_MODULE_2___default()().format('M'));
-      var hours = parseInt(moment__WEBPACK_IMPORTED_MODULE_2___default()().format('H'));
+      var now = moment__WEBPACK_IMPORTED_MODULE_2___default()();
+      var minutes = parseInt(now.format('m'));
+      var hours = parseInt(now.format('H'));
       var totalMinutes = hours * 60 + minutes;
       this.nowPosition = totalMinutes / 30 * 144;
     },
@@ -7153,7 +7173,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".channel-link[data-v-06039c18] {\n  scroll-snap-align: start;\n}\n.channel-img[data-v-06039c18] {\n  margin-right: 10px;\n  /*margin-bottom: 10px;*/\n  height: 12.3vw;\n  width: 12.3vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  /*border-radius: 10px;*/\n  /*border: 1px solid silver;*/\n  -webkit-transition: 0.3s;\n  transition: 0.3s;\n}\n.channel-img[data-v-06039c18]:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n@media screen and (max-width: 700px) {\n.channel-img[data-v-06039c18] {\n    width: 28vw;\n    height: 28vw;\n}\n}", ""]);
+exports.push([module.i, ".channel-link[data-v-06039c18] {\n  scroll-snap-align: start;\n}\n.channel-img[data-v-06039c18] {\n  margin-right: 10px;\n  margin-bottom: 10px;\n  height: 12.3vw;\n  width: 12.3vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  /*border-radius: 10px;*/\n  /*border: 1px solid silver;*/\n  -webkit-transition: 0.3s;\n  transition: 0.3s;\n}\n.channel-img[data-v-06039c18]:hover {\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n@media screen and (max-width: 700px) {\n.channel-img[data-v-06039c18] {\n    width: 28vw;\n    height: 28vw;\n}\n}", ""]);
 
 // exports
 
@@ -7172,7 +7192,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".channel-row-wrapper[data-v-a4be29fc] {\n  margin-bottom: 10px;\n}\n.collapse[data-v-a4be29fc] {\n  padding: 3px 0;\n  overflow: hidden;\n  height: 12.3vw;\n}\n.see-more[data-v-a4be29fc] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n}\n.see-more span[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 1.1rem;\n  cursor: pointer;\n  margin-right: 8px;\n  font-weight: bold;\n  color: #fff;\n  font-family: \"Dubai-Regular\", sans-serif;\n  /*&:hover {*/\n  /*  color: red;*/\n  /*}*/\n}\n.title[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 2rem;\n  font-weight: bold;\n  margin-bottom: 10px;\n}\n.channel-row[data-v-a4be29fc] {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n}\n@media screen and (max-width: 700px) {\n.collapse[data-v-a4be29fc] {\n    overflow: hidden;\n    height: 28vw;\n}\n}", ""]);
+exports.push([module.i, ".channel-row-wrapper[data-v-a4be29fc] {\n  margin-bottom: 10px;\n}\n.collapse[data-v-a4be29fc] {\n  padding: 3px 0;\n  overflow: hidden;\n  height: 12.3vw;\n}\n.see-more[data-v-a4be29fc] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n          align-items: center;\n  margin-top: 5px;\n}\n.see-more span[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 1rem;\n  cursor: pointer;\n  margin-right: 8px;\n  font-weight: bold;\n  color: #fff;\n  font-family: \"Dubai-Regular\", sans-serif;\n  /*&:hover {*/\n  /*  color: red;*/\n  /*}*/\n}\n.title[data-v-a4be29fc] {\n  display: inline-block;\n  font-size: 1.5rem;\n  font-weight: bold;\n  margin-bottom: 5px;\n}\n.channel-row[data-v-a4be29fc] {\n  display: -webkit-box;\n  display: flex;\n  flex-wrap: wrap;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n          flex-direction: row;\n}\n@media screen and (max-width: 700px) {\n.collapse[data-v-a4be29fc] {\n    overflow: hidden;\n    height: 28vw;\n}\n}", ""]);
 
 // exports
 
@@ -7457,7 +7477,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".left-col .title[data-v-09dfb921] {\n  border-bottom: 1px solid #555;\n  min-height: 30px;\n  text-align: center;\n}\nul[data-v-09dfb921] {\n  list-style: none;\n}\nul.channels li.channel[data-v-09dfb921] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  border-bottom: 1px solid #555;\n  min-height: 80px;\n}\nul.channels li.channel .container-img[data-v-09dfb921] {\n  float: left;\n  min-width: 190px;\n}\nul.channels li.channel .container-img > img[data-v-09dfb921] {\n  max-height: 40px !important;\n  max-width: 70% !important;\n}\nul.channels li.channel span[data-v-09dfb921] {\n  min-width: 60px;\n}\nul.channels li.channel img[data-v-09dfb921] {\n  height: auto;\n}\n.guide-container[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 200px;\n}\n.guide-container .left-col[data-v-09dfb921] {\n  overflow: hidden;\n  min-width: 250px;\n}\n.guide-container .right-col[data-v-09dfb921] {\n  position: relative;\n  overflow: auto;\n}\n.timeline[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.timeline .timeline-item[data-v-09dfb921] {\n  width: 144px;\n  min-width: 144px;\n  min-height: 30px;\n  border-right: 1px solid #555;\n  border-bottom: 1px solid #555;\n  padding-left: 10px;\n}\n.program-row[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.program-row .program[data-v-09dfb921] {\n  border: 1px solid #555;\n  min-height: 80px;\n  height: 80px;\n  overflow: hidden;\n  text-align: center;\n  line-height: 80px;\n}\n.load-more[data-v-09dfb921] {\n  position: absolute;\n  left: 50%;\n  text-align: center;\n  cursor: pointer;\n  padding: 5px;\n  margin-bottom: 200px;\n}\n.now[data-v-09dfb921] {\n  position: absolute;\n  width: 2px;\n  height: 100%;\n  background: #d60000;\n}\n.fade[data-v-09dfb921] {\n  position: absolute;\n  right: 0;\n  width: 100px;\n  height: 100%;\n  background: black;\n}", ""]);
+exports.push([module.i, ".left-col .title[data-v-09dfb921] {\n  border-bottom: 1px solid #555;\n  min-height: 30px;\n  text-align: center;\n}\nul[data-v-09dfb921] {\n  list-style: none;\n}\nul.channels li.channel[data-v-09dfb921] {\n  text-align: center;\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-align: center;\n          align-items: center;\n  border-bottom: 1px solid #555;\n  min-height: 80px;\n}\nul.channels li.channel .container-img[data-v-09dfb921] {\n  float: left;\n  min-width: 190px;\n}\nul.channels li.channel .container-img > img[data-v-09dfb921] {\n  max-height: 40px !important;\n  max-width: 70% !important;\n}\nul.channels li.channel span[data-v-09dfb921] {\n  min-width: 60px;\n}\nul.channels li.channel img[data-v-09dfb921] {\n  height: auto;\n}\n.guide-container[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n  margin-bottom: 20px;\n}\n.guide-container .left-col[data-v-09dfb921] {\n  overflow: hidden;\n  min-width: 250px;\n}\n.guide-container .right-col[data-v-09dfb921] {\n  position: relative;\n  overflow: auto;\n}\n.timeline[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.timeline .timeline-item[data-v-09dfb921] {\n  width: 144px;\n  min-width: 144px;\n  min-height: 30px;\n  border-right: 1px solid #555;\n  border-bottom: 1px solid #555;\n  padding-left: 10px;\n}\n.program-row[data-v-09dfb921] {\n  display: -webkit-box;\n  display: flex;\n}\n.program-row .program[data-v-09dfb921] {\n  border: 1px solid #555;\n  min-height: 80px;\n  height: 80px;\n  overflow: hidden;\n  text-align: center;\n  line-height: 80px;\n}\n.load-more[data-v-09dfb921] {\n  position: absolute;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  font-size: 1rem;\n  cursor: pointer;\n}\n.load-more[data-v-09dfb921]:hover {\n  background: #d60000;\n}\n.now[data-v-09dfb921] {\n  position: absolute;\n  width: 2px;\n  height: 100%;\n  background: #d60000;\n}\n.fade[data-v-09dfb921] {\n  position: absolute;\n  right: 0;\n  width: 100px;\n  height: 100%;\n  background: black;\n}", ""]);
 
 // exports
 
@@ -103117,9 +103137,25 @@ var render = function() {
       : _vm._e(),
     _c(
       "div",
-      { staticClass: "see-more", on: { click: _vm.collapse } },
+      {
+        staticClass: "see-more",
+        attrs: { dir: _vm.locale === "_ar" ? "rtl" : "ltr" },
+        on: { click: _vm.collapse }
+      },
       [
-        _c("span", [_vm._v(_vm._s(_vm.collapsed ? "SEE MORE" : "SEE LESS"))]),
+        _c("span", [
+          _vm._v(
+            _vm._s(
+              _vm.collapsed
+                ? _vm.locale === "_ar"
+                  ? "المزيد"
+                  : "SEE MORE"
+                : _vm.locale === "_ar"
+                ? "اقل"
+                : "SEE LESS"
+            )
+          )
+        ]),
         _c("down-arrow", { attrs: { down: !_vm.collapsed } })
       ],
       1
@@ -104140,22 +104176,13 @@ var render = function() {
             return _c(
               "div",
               { key: channelPrograms.id, staticClass: "program-row" },
-              _vm._l(channelPrograms.data, function(program) {
+              _vm._l(channelPrograms.data, function(program, index) {
                 return _c(
                   "div",
                   {
                     key: program.id,
                     staticClass: "program",
-                    style:
-                      "min-width: " +
-                      (program.empty_div_width > program.total_div_width
-                        ? program.empty_div_width
-                        : program.total_div_width) +
-                      "px; width: " +
-                      (program.empty_div_width > program.total_div_width
-                        ? program.empty_div_width
-                        : program.total_div_width) +
-                      "px"
+                    style: _vm.calcWidth(channelPrograms.data, index)
                   },
                   [_vm._v(_vm._s(program["title" + _vm.locale]))]
                 )
@@ -104170,10 +104197,7 @@ var render = function() {
     _vm.current_page < _vm.last_page
       ? _c(
           "a",
-          {
-            staticClass: "load-more btn-secondary",
-            on: { click: _vm.loadMore }
-          },
+          { staticClass: "button load-more", on: { click: _vm.loadMore } },
           [_vm._v("Load More")]
         )
       : _vm._e()

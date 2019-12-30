@@ -25,7 +25,7 @@
 
   .channel-img {
     margin-right: 10px;
-    /*margin-bottom: 10px;*/
+    margin-bottom: 10px;
     height: 12.3vw;
     width: 12.3vw;
     object-fit: cover;

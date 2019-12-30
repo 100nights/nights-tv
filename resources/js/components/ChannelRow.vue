@@ -3,8 +3,8 @@
     .title {{ category['name' + locale] }}
     .channel-row(:class="collapsed ? 'collapse' : ''" v-if="channels")
       channel-card(v-for="channel in data" :channel="channel" :key="channel.id")
-    .see-more(v-on:click="collapse")
-      span {{ collapsed ? 'SEE MORE' : 'SEE LESS' }}
+    .see-more(:dir="locale === '_ar' ? 'rtl' : 'ltr'" v-on:click="collapse")
+      span {{ collapsed ? locale === '_ar' ? 'المزيد'  : 'SEE MORE' : locale === '_ar' ? 'اقل' : 'SEE LESS' }}
       down-arrow(:down="!collapsed")
 
 </template>
@@ -52,11 +52,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 5px;
   }
 
   .see-more span {
     display: inline-block;
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
     margin-right: 8px;
     font-weight: bold;
@@ -71,9 +72,9 @@
 
   .title {
     display: inline-block;
-    font-size: 2.0rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   .channel-row {
