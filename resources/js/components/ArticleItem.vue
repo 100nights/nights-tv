@@ -5,6 +5,7 @@
       .text-container
         .article-headline {{ article["headline"] }}
         .article-summary {{ article["summary"] }}
+        .article-date {{ date }}
 
 </template>
 
@@ -24,6 +25,10 @@
       to() {
         return '/home/news/' + this.article.id
       },
+
+      date() {
+        return moment(this.article['date']).fromNow()
+      }
     }
   }
 </script>
@@ -41,11 +46,14 @@
   }
 
   .article-item img {
+    max-width: 300px;
     margin-left: .5rem;
     object-fit: cover;
   }
 
   .text-container {
+    display: flex;
+    flex-direction: column;
     .article-headline {
       font-size: 1.3rem;
       margin-bottom: .5rem;
@@ -56,6 +64,13 @@
       font-family: 'Dubai-Light', sans-serif;
       font-size: 1rem;
       color: #f0f0f0d6;
+    }
+
+    .article-date {
+      font-family: 'Dubai-Light', sans-serif;
+      font-size: 1rem;
+      color: #f0f0f0d6;
+      flex: 1;
     }
   }
 

@@ -12,6 +12,11 @@ class ChannelController extends Controller
   {
     $channels = Channel::all();
 
+
+    foreach ($channels as $channel) {
+      $channel['category'] = $channel->category;
+    }
+
     return response()->json(['channels' => $channels]);
   }
 

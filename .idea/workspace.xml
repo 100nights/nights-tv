@@ -2,19 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ef5be36-05e2-4a74-a989-29201fd1596e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/GetGuide.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Console/Commands/GetSchedule.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/api/news.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/ArticleItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/pages/Article.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ChannelController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChannelController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/HomeFeatured.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/HomeFeatured.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/LoadingIndicator.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/LoadingIndicator.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/pages/News.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/pages/News.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ArticleItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ArticleItem.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +148,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/pages" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -246,7 +237,10 @@
       <workItem from="1577715539794" duration="924000" />
       <workItem from="1577784294899" duration="13662000" />
       <workItem from="1577900735099" duration="4292000" />
-      <workItem from="1577961876790" duration="13896000" />
+      <workItem from="1577961876790" duration="15019000" />
+      <workItem from="1578072132667" duration="17000" />
+      <workItem from="1578136035293" duration="57000" />
+      <workItem from="1578152352092" duration="522000" />
     </task>
     <servers />
   </component>

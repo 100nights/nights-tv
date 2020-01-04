@@ -3490,6 +3490,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "article-item",
@@ -3503,6 +3504,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     to: function to() {
       return '/home/news/' + this.article.id;
+    },
+    date: function date() {
+      return moment__WEBPACK_IMPORTED_MODULE_0___default()(this.article['date']).fromNow();
     }
   }
 });
@@ -7600,7 +7604,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".article-item[data-v-33348f8e] {\n  display: -webkit-box;\n  display: flex;\n  margin: 1rem;\n  -webkit-transition: 0.2s;\n  transition: 0.2s;\n}\n.article-item[data-v-33348f8e]:hover {\n  background: #ffffff33;\n}\n.article-item img[data-v-33348f8e] {\n  margin-left: 0.5rem;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.text-container .article-headline[data-v-33348f8e] {\n  font-size: 1.3rem;\n  margin-bottom: 0.5rem;\n  font-weight: bold;\n}\n.text-container .article-summary[data-v-33348f8e] {\n  font-family: \"Dubai-Light\", sans-serif;\n  font-size: 1rem;\n  color: #f0f0f0d6;\n}\n@media screen and (max-width: 700px) {\n.article-item[data-v-33348f8e] {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n.article-item img[data-v-33348f8e] {\n    width: 100%;\n}\n}", ""]);
+exports.push([module.i, ".article-item[data-v-33348f8e] {\n  display: -webkit-box;\n  display: flex;\n  margin: 1rem;\n  -webkit-transition: 0.2s;\n  transition: 0.2s;\n}\n.article-item[data-v-33348f8e]:hover {\n  background: #ffffff33;\n}\n.article-item img[data-v-33348f8e] {\n  margin-left: 0.5rem;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.text-container[data-v-33348f8e] {\n  display: -webkit-box;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n          flex-direction: column;\n}\n.text-container .article-headline[data-v-33348f8e] {\n  font-size: 1.3rem;\n  margin-bottom: 0.5rem;\n  font-weight: bold;\n}\n.text-container .article-summary[data-v-33348f8e] {\n  font-family: \"Dubai-Light\", sans-serif;\n  font-size: 1rem;\n  color: #f0f0f0d6;\n}\n.text-container .article-date[data-v-33348f8e] {\n  font-family: \"Dubai-Light\", sans-serif;\n  font-size: 1rem;\n  color: #f0f0f0d6;\n  -webkit-box-flex: 1;\n          flex: 1;\n}\n@media screen and (max-width: 700px) {\n.article-item[data-v-33348f8e] {\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n            flex-direction: column;\n}\n.article-item img[data-v-33348f8e] {\n    width: 100%;\n}\n}", ""]);
 
 // exports
 
@@ -103768,7 +103772,8 @@ var render = function() {
         ]),
         _c("div", { staticClass: "article-summary" }, [
           _vm._v(_vm._s(_vm.article["summary"]))
-        ])
+        ]),
+        _c("div", { staticClass: "article-date" }, [_vm._v(_vm._s(_vm.date))])
       ])
     ])
   ])
