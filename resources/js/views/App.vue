@@ -1,17 +1,20 @@
 <template lang="pug">
   div
-    nav.nav-bar.gradient
-      router-link.logo(:to="$route.path === '/home/live-tv' ? '/' : '/home/live-tv'")
-        img(src="/images/logo.png")
-      .expanded
-      .left
-        router-link.button.downloads(to="/home/downloads") {{ locale === '_ar' ? 'التحميلات' : 'Downloads'}}
-        router-link.button.schedule(to="/home/schedule") {{ locale === '_ar' ? 'الجدول' : 'Schedule'}}
-        a(@click="changeLocale('')" :class="{highlighted: locale === ''}") English
-        .divider
-        a(@click="changeLocale('_ar')" :class="{highlighted: locale === '_ar'}") العربية
-    router-view
-    app-footer
+    div(v-if="$route.name !== 'kids-tv' && $route.name !== 'kids-player'")
+      nav.nav-bar.gradient
+        router-link.logo(:to="$route.path === '/home/live-tv' ? '/' : '/home/live-tv'")
+          img(src="/images/logo.png")
+        .expanded
+        .left
+          router-link.button.downloads(to="/home/downloads") {{ locale === '_ar' ? 'التحميلات' : 'Downloads'}}
+          router-link.button.schedule(to="/home/schedule") {{ locale === '_ar' ? 'الجدول' : 'Schedule'}}
+          a(@click="changeLocale('')" :class="{highlighted: locale === ''}") English
+          .divider
+          a(@click="changeLocale('_ar')" :class="{highlighted: locale === '_ar'}") العربية
+      router-view
+      app-footer
+    transition(name="fade")
+      router-view.kids-view(name="kidsView")
 </template>
 <script>
   import Footer from "../components/Footer"

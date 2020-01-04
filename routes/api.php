@@ -27,8 +27,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
   // return $request->user();
 });
 
+// votes
 Route::resource('/votes', 'VoteController');
 Route::resource('/vote_posts', 'VotePostController');
+
 Route::get('/landing', 'LandingController@index');
 Route::get('/channels/category/{category}', 'CategoryController@getChannels');
 Route::get('/promos', 'PromoController@index');
@@ -40,12 +42,16 @@ Route::get('/categories/{category}', 'CategoryController@show');
 Route::get('/home_promo', 'HomePromoController@index');
 Route::get('/schedule', 'ScheduleController@index');
 Route::get('/tv_guide', 'TvChannelProgramsTableController@index');
+Route::get('/kids-channels', 'ChannelController@kids');
 
 Route::get('/game_date', function () {
   $gameDate = GameDate::first();
 
   return response()->json(['game_date' => $gameDate], 200);
 });
+
+// articles
+Route::get('/articles', 'ArticleController@index')->name('articles.index');
 
 
 Route::get('/tv_guide_channels', 'TvGuideChannelController@index');

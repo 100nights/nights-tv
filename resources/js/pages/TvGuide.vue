@@ -9,6 +9,8 @@
             .container-img
               img(:src="`//content.osn.com/logo/channel/cropped/${channel.channel_code}.png`")
       .right-col
+        .before-gradient
+        .after-gradient
         .now(:style="'left: ' + nowPosition + 'px'")
         .fade
         .timeline(v-if="timeline")
@@ -170,6 +172,24 @@
     .right-col {
       position: relative;
       overflow: auto;
+
+      .before-gradient {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        background: linear-gradient(90deg, #03090f, transparent);
+        width: 100px;
+        height: 100%;
+      }
+      .after-gradient {
+        position: fixed;
+        background: linear-gradient(90deg, transparent, #03090f);
+        width: 100px;
+        height: 100%;
+        right: 0;
+      }
+
     }
 
     margin-bottom: 20px;

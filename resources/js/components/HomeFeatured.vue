@@ -8,6 +8,8 @@
         .tab.live-tv(:class="{highlighted: isHighlighted === 'schedule'}") {{ locale === '_ar' ? 'الجدول' : 'Schedule'}}
       router-link(to="/home/tv-guide")
         .tab.tv-guide(:class="{highlighted: isHighlighted === 'tv-guide'}") {{ locale === '_ar' ? 'الدليل' : 'Guide'}}
+      router-link(to="/home/news")
+        .tab.tv-guide(:class="{highlighted: isHighlighted.includes('news')}") {{ locale === '_ar' ? 'الاخبار' : 'News'}}
       router-link(to="/home/downloads")
         .tab.downloads(:class="{highlighted: isHighlighted === 'downloads'}") {{ locale === '_ar' ? 'التحميلات' : 'Downloads'}}
 

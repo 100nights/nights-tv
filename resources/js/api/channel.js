@@ -7,6 +7,15 @@ export function getChannels() {
   })
 }
 
+
+export function getKidsChannels() {
+  return request({
+    url: '/kids-channels',
+    method: 'get'
+  })
+}
+
+
 export function getChannelsByCategory(id) {
   return request({
     url: `/channels/category/${id}`,

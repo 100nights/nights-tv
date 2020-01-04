@@ -20,7 +20,7 @@
             .result(v-if="vote != null") {{ away_ratio }}%
 
       transition(name="fade")
-        router-view.home-view(name="homeView")
+        router-view.home-view(name="homeView" :key="$route.fullPath")
 
 
 </template>

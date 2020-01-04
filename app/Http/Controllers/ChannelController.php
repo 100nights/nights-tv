@@ -15,6 +15,15 @@ class ChannelController extends Controller
     return response()->json(['channels' => $channels]);
   }
 
+
+  public function kids()
+  {
+    $channels = Channel::where('kids', 1)->get();
+
+
+    return response()->json($channels);
+  }
+
   public function store(Request $request)
   {
 
