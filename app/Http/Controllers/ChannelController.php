@@ -10,12 +10,9 @@ class ChannelController extends Controller
 {
   public function index()
   {
-    $channels = Channel::all();
-
-
-    foreach ($channels as $channel) {
-      $channel['category'] = $channel->category;
-    }
+    $channels = Channel::all()->each(function ($channel) {
+      $channel['category_name'] = $channel->category;
+    });
 
     return response()->json(['channels' => $channels]);
   }

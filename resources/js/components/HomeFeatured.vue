@@ -15,7 +15,7 @@
 
     .watch-now
       img.channel-logo(:src="channelLogoPath" width="200px" height="100px")
-      router-link.button.channel-button(:to="channelPath") {{ countDown || locale === '_ar' ? 'شاهد الان' : 'Watch Now' }}
+      router-link.button.channel-button(:to="channelPath") {{ countDown || (locale === '_ar' ? 'شاهد الان' : 'Watch Now') }}
       .watch-now-title {{ homePromo['title' + locale] }}
 
 </template>
