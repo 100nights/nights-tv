@@ -1,6 +1,5 @@
 <template>
   <span :style="style" class="down-arrow">
-    <img src="/images/arrow.png">
   </span>
 
 
@@ -12,7 +11,7 @@
         props: ['down'],
         computed: {
             style() {
-                return this.down ? 'transform: rotate(180deg)' : '';
+                return this.down ? 'transform: rotate(135deg)' : 'transform: rotate(-45deg)';
             }
         }
     }
@@ -20,11 +19,13 @@
 
 <style scoped>
   .down-arrow {
-    fill: #d60000;
-    /*margin-top: 5px;*/
-  }
-
-  .down-arrow img {
-    width: 13px;
+    width: 10px;
+    height: 10px;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-left-width: 2px;
+    border-bottom-width: 2px;
+    border-style: solid;
+    border-color: white;
   }
 </style>

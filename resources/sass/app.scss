@@ -1,4 +1,5 @@
 @import url(//cdn.rawgit.com/rtaibah/dubai-font-cdn/master/dubai-font.css);
+@import './variables.scss';
 
 html,
 body {
@@ -20,4 +21,33 @@ body {
 a {
   text-decoration: none !important;
   color: white !important;
+}
+
+
+.base-button {
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.bordery {
+  border-radius: 9999px;
+}
+
+.h-rainbow {
+  background: linear-gradient(90deg, $color-blue, $color-red);
+}
+
+.v-rainbow {
+  background: linear-gradient(0deg, $color-blue, $color-red);
+}
+
+.rainbow-button {
+  box-shadow: 0 0 20px $color-red;
+  background: $color-red;
+  
+  &:hover {
+    box-shadow: 0 0 40px $color-blue;
+    background: linear-gradient(90deg, $color-blue, $color-red);
+  }
 }

@@ -4,8 +4,9 @@
     .channel-row(:class="collapsed ? 'collapse' : ''" v-if="channels")
       channel-card(v-for="channel in data" :channel="channel" :key="channel.id")
     .see-more(:dir="locale === '_ar' ? 'rtl' : 'ltr'" v-on:click="collapse")
-      span {{ collapsed ? locale === '_ar' ? 'المزيد'  : 'SEE MORE' : locale === '_ar' ? 'اقل' : 'SEE LESS' }}
-      down-arrow(:down="!collapsed")
+      div(:style="style")
+        span {{ collapsed ? locale === '_ar' ? 'المزيد'  : 'See More' : locale === '_ar' ? 'اقل' : 'See Less' }}
+        down-arrow(:down="!collapsed")
 
 </template>
 
@@ -32,11 +33,18 @@
         this.collapsed = !this.collapsed
       },
 
+    },
+    computed: {
+      style() {
+        return !this.collapsed ? "background: transparent !important" : ""
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+  @import '../../sass/variables.scss';
+
   .channel-row-wrapper {
     margin-bottom: 10px;
   }
@@ -49,10 +57,18 @@
 
   .see-more {
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5px;
+    margin-top: 10px;
+    div {
+      display: flex;
+      min-width: 8rem;
+      max-width: 9rem;
+      margin: auto;
+      justify-content: space-between;
+      align-items: center;
+      background: $color-red;
+      padding: 10px 20px;
+      border-radius: 9999px;
+    }
   }
 
   .see-more span {
@@ -60,13 +76,8 @@
     font-size: 1rem;
     cursor: pointer;
     margin-right: 8px;
-    font-weight: bold;
     color: #fff;
     font-family: "Dubai-Regular", sans-serif;
-
-    /*&:hover {*/
-    /*  color: red;*/
-    /*}*/
   }
 
 

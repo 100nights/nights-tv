@@ -15,7 +15,7 @@
 
     .watch-now
       img.channel-logo(:src="channelLogoPath" width="200px" height="100px")
-      router-link.button.channel-button(:to="channelPath") {{ countDown || (locale === '_ar' ? 'شاهد الان' : 'Watch Now') }}
+      router-link.base-button.bordery.rainbow-button.channel-button(:to="channelPath") {{ countDown || (locale === '_ar' ? 'شاهد الان' : 'Watch Now') }}
       .watch-now-title {{ homePromo['title' + locale] }}
 
 </template>
@@ -125,12 +125,14 @@
 </script>
 
 <style lang="scss" scoped>
+  @import '../../sass/variables.scss';
 
   .button {
     text-decoration: none;
     color: white;
     padding: 10px 35px;
-    box-shadow: 0 0 0 2px #d60000;
+    background: $color-red;
+    box-shadow: 0 0 0 3px;
     border-radius: 40px;
     transition: 0.2s;
     text-align: center;
@@ -139,14 +141,9 @@
 
   .button:hover {
     background: rgba(201, 201, 201, 0.219);
-    box-shadow: 0 0 0 3px #d60000;
+    box-shadow: 0 0 0 3px $color-red;
   }
 
-  .button.channel-button {
-    &:hover {
-      background: #d60000;
-    }
-  }
 
 
   .featured {

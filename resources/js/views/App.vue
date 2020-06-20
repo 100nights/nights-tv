@@ -3,7 +3,7 @@
     div(v-if="$route.name !== 'kids-tv' && $route.name !== 'kids-player'")
       nav.nav-bar.gradient
         router-link.logo(:to="$route.path === '/home/live-tv' ? '/' : '/home/live-tv'")
-          img(src="/images/logo.png")
+          img(src="/images/logo.svg")
         .expanded
         .left
           router-link.button.downloads(to="/home/downloads") {{ locale === '_ar' ? 'التحميلات' : 'Downloads'}}

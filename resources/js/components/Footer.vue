@@ -1,10 +1,15 @@
-<template lang="pug">
-  footer Copyright © 2019
-    |
-    |
-    span 1001 Nights
-    |
-    | All rights reserved.
+<template>
+    <footer class="footer h-rainbow">
+      <img class="footer-logo" src="/images/logo-white.svg">
+          <span class="font-thin opacity-75 mx-2">Copyright © 2020 1001Nights All rights reserved.</span>
+          <a
+            href="https://fb.com/1001nights.fun"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span>Contact Us on Facebook</span>
+          </a>
+        </footer>
 </template>
 
 <script>
@@ -15,12 +20,14 @@
 
 <style lang="scss" scoped>
   footer {
-    background: #2e2d2e;
-    border-bottom: 5px solid #d60000;
-    text-align: center;
-    padding: 10px;
-    span {
-      color: #d60000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Dubai-Light", sans-serif;
+    padding: 2rem 4rem;
+    .footer-logo {
+      width: 10rem;
     }
   }
+
 </style>
